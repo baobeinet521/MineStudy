@@ -1,4 +1,4 @@
-package com.zd.study.activity;
+package com.zd.study.handler;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.zd.study.MyThread;
 import com.zd.study.R;
 import com.zd.study.utils.Utils;
 
