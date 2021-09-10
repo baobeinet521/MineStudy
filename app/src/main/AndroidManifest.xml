@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyApplication">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,6 +20,9 @@
         </activity>
 
         <activity android:name=".handler.HandlerActivity"/>
+
+        <activity android:name=".activity.LifeCycleActivity"
+            android:configChanges="orientation|screenSize"/>
     </application>
 
 </manifest>

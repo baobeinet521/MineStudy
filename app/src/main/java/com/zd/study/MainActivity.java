@@ -1,4 +1,4 @@
-package com.zd.study.activity;
+package com.zd.study;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.zd.study.R;
+import com.zd.study.activity.LifeCycleActivity;
 import com.zd.study.handler.HandlerActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id){
             case R.id.test_btn:
-                Intent intent = new Intent(this, HandlerActivity.class);
+//                Intent intent = new Intent(this, HandlerActivity.class);
+                Intent intent = new Intent(this, LifeCycleActivity.class);
                 startActivity(intent);
                 break;
         }
