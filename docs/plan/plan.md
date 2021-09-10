@@ -5,7 +5,7 @@
 
 2021-08-31 ~ 2021-09-03
 1、Java知识点
-(1)LinkedList 相关知识点吃透
+(1)LinkedList 相关知识点
 
 (2)HashMap原理以及与HashTable的区别
 
