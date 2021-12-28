@@ -23,6 +23,7 @@
 
         <activity android:name=".activity.LifeCycleActivity"
             android:configChanges="orientation|screenSize"/>
+        <activity android:name=".kotlin.StudyKotlinActivity"/>
     </application>
 
 </manifest>

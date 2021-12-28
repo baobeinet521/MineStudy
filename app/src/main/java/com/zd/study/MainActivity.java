@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.zd.study.R;
 import com.zd.study.activity.LifeCycleActivity;
 import com.zd.study.handler.HandlerActivity;
+import com.zd.study.kotlin.StudyKotlinActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mTestBtn;
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.test_btn:
 //                Intent intent = new Intent(this, HandlerActivity.class);
-                Intent intent = new Intent(this, LifeCycleActivity.class);
+//                Intent intent = new Intent(this, LifeCycleActivity.class);
+                Intent intent = new Intent(this, StudyKotlinActivity.class);
                 startActivity(intent);
                 break;
         }
