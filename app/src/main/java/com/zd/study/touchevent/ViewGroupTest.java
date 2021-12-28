@@ -27,23 +27,28 @@ public class ViewGroupTest extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        boolean disTag = super.dispatchTouchEvent(ev);
+//        boolean disTag = super.dispatchTouchEvent(ev);
 //        boolean disTag = false;
-        Log.d(TAG,"  dispatchTouchEvent ==== disTag =  " + disTag + "  action   " + ev.getAction());
-        return disTag;
+        Log.d(TAG,"  dispatchTouchEvent ====   action   " + ev.getAction());
+        return super.dispatchTouchEvent(ev);
+//        return false;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        boolean onInterceptTag = super.onInterceptTouchEvent(ev);
-        Log.d(TAG, "  onInterceptTouchEvent  onInterceptTag =" +onInterceptTag + "  action   " + ev.getAction());
-        return onInterceptTag;
+//        boolean onInterceptTag = super.onInterceptTouchEvent(ev);
+        Log.d(TAG, "  onInterceptTouchEvent    action   " + ev.getAction());
+        if(ev.getAction() != 0){
+            return true;
+
+        }
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        boolean onTouchTag = super.onTouchEvent(event);
-        Log.d(TAG,"    onTouchEvent====== onTouchTag = " + onTouchTag + "  action   " + event.getAction());
-        return onTouchTag;
+        Log.d(TAG,"    onTouchEvent======   action   " + event.getAction());
+        return super.onTouchEvent(event);
+//        return true;
     }
 }

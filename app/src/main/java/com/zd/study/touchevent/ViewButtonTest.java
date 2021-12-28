@@ -24,16 +24,17 @@ public class ViewButtonTest extends AppCompatButton {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        boolean disTag = super.dispatchTouchEvent(event);
 //        boolean disTag = false;
-        Log.d(TAG, " dispatchTouchEvent===== dis = " + disTag + "  action   " + event.getAction());
-        return disTag;
+        Log.d(TAG, " dispatchTouchEvent=====   action   " + event.getAction());
+        return super.dispatchTouchEvent(event);
+//        return true;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        boolean touchTag = super.onTouchEvent(event);
-        Log.d(TAG, " onTouchEvent===== touchTag = " + touchTag + "  action   " + event.getAction());
-        return touchTag;
+        Log.d(TAG, " onTouchEvent=====   action   " + event.getAction());
+        getParent().requestDisallowInterceptTouchEvent(true);
+        return super.onTouchEvent(event);
+//        return true;
     }
 }
