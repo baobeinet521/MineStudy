@@ -24,6 +24,7 @@
         <activity android:name=".activity.LifeCycleActivity"
             android:configChanges="orientation|screenSize"/>
         <activity android:name=".kotlin.StudyKotlinActivity"/>
+        <activity android:name=".touchevent.TouchEventTestActivity"/>
     </application>
 
 </manifest>

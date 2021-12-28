@@ -1,5 +1,8 @@
 package com.zd.study.java;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestJava {
 
     public static void main(String[] args){
@@ -74,5 +77,6 @@ class Bank{
     public void checkMoney(){
         System.out.println("账户余额   " + moneyA);
     }
+
 
 }

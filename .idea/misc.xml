@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_kotlin_layout.xml" value="0.536" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_layout_handler.xml" value="0.536" />
-        <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_touch_event_layout.xml" value="0.2625" />
       </map>
     </option>
   </component>
@@ -18,7 +19,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.536" />
+        <option name="scale" value="0.264" />
       </ProjectState>
     </option>
   </component>
