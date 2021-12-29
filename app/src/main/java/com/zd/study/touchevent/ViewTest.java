@@ -5,35 +5,35 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 
 
-public class ViewButtonTest extends AppCompatButton {
-    public static String TAG = "TouchEventTestViewButton";
+public class ViewTest extends View {
+    public static String TAG = "TouchEventTestView";
 
-    public ViewButtonTest(Context context) {
+    public ViewTest(Context context) {
         super(context);
     }
 
-    public ViewButtonTest(Context context, AttributeSet attrs) {
+    public ViewTest(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ViewButtonTest(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ViewTest(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-//        boolean disTag = false;
         Log.d(TAG, " dispatchTouchEvent=====   action   " + event.getAction());
         return super.dispatchTouchEvent(event);
-//        return true;
+//        return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         Log.d(TAG, " onTouchEvent=====   action   " + event.getAction());
-        getParent().requestDisallowInterceptTouchEvent(true);
+//        getParent().requestDisallowInterceptTouchEvent(true);
         return super.onTouchEvent(event);
 //        return true;
     }

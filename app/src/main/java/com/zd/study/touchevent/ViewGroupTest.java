@@ -27,8 +27,6 @@ public class ViewGroupTest extends LinearLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-//        boolean disTag = super.dispatchTouchEvent(ev);
-//        boolean disTag = false;
         Log.d(TAG,"  dispatchTouchEvent ====   action   " + ev.getAction());
         return super.dispatchTouchEvent(ev);
 //        return false;
@@ -36,13 +34,13 @@ public class ViewGroupTest extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-//        boolean onInterceptTag = super.onInterceptTouchEvent(ev);
         Log.d(TAG, "  onInterceptTouchEvent    action   " + ev.getAction());
-        if(ev.getAction() != 0){
-            return true;
-
-        }
+//        if(ev.getAction() != 0){
+//            return true;
+//
+//        }
         return super.onInterceptTouchEvent(ev);
+//        return true;
     }
 
     @Override

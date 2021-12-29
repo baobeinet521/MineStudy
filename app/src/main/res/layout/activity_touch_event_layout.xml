@@ -13,13 +13,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/red">
 
-        <com.zd.study.touchevent.ViewButtonTest
+        <com.zd.study.touchevent.ViewTest
             android:id="@+id/view_test"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:background="@color/black"
             android:text="view测试">
 
-        </com.zd.study.touchevent.ViewButtonTest>
+        </com.zd.study.touchevent.ViewTest>
 
     </com.zd.study.touchevent.ViewGroupTest>
 

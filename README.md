@@ -1,12 +1,88 @@
 # Android学习笔记
 ## 事件分发学习
-###插入链接
-[事件分发](https://www.cnblogs.com/chengxuyinli/p/9979826.html)
+
+[事件分发学习网站](https://www.cnblogs.com/chengxuyinli/p/9979826.html)
+
 
 - MotionEvent
  - ACTION_DOWN = 0
  - ACTION_UP = 1
  - ACTION_MOVE = 2
  - ACTION_CANCEL = 3
+ 
+- 事件分发的完整流程
+- ![viewGroup的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/完整流程.png)
 
-dispatchTouchEvent 方法不继承父类方法（super.dispatchTouchEvent(ev)）直接返回false或者true事件将停止分发
+####activity  所有事件分发方法都调用父类方法
+![activity的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/normal_process.png)
+
+
+####dispatchTouchEvent 方法返回true/false
+
+   activity 的 dispatchTouchEvent 方法返回true/false 事件直接被消费
+
+   - activity 的 dispatchTouchEvent 方法返回true
+
+![activity的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/activity_disPatch_return_true.png)
+
+  - activity 的 dispatchTouchEvent 方法返回false
+
+![activity的dispatchTouchEvent返回false](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/activity_disPatch_return_false.png)
+
+## 总结 ##
+activity的dispatchTouchEvent返回true和false事件都会被消费
+***
+
+  - viewGroup  的 dispatchTouchEvent 方法返回true,事件直接消费
+
+![viewGroup的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_disPatch_return_true.png)
+
+  - viewGroup  的 dispatchTouchEvent 方法返回false
+  
+*返回false会询问父控件onTouchEvent是否消费事件*
+
+![viewGroup的dispatchTouchEvent返回false](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_disPatch_return_false.png)
+
+ - ViewGroup 的 onInterceptTouchEvent 返回false
+  
+![viewGroup的onInterceptTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_intercept_return_false.png)
+
+ - ViewGroup 的   onInterceptTouchEvent super.onInterceptTouchEvent(ev)    TouchEvent 方法返回true
+ 
+![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_superonintercept_onTouchEvent_return_true.png)
+
+ - ViewGroup 的   onInterceptTouchEvent return true    TouchEvent 方法返回super.TouchEvent()
+ 
+![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_super.png)
+
+- ViewGroup 的   onInterceptTouchEvent return true    TouchEvent 方法返回true
+
+![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_return_true.png)
+## 总结 ##
+viewGroup的dispatchTouchEvent返回false，事件会被传递到父控件的OnTouchEvent
+ 
+ ***
+ - View  的 dispatchTouchEvent 方法返回true  事件直接被消费
+
+![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_disPatch_return_true.png)
+
+- View  的 dispatchTouchEvent 方法返回false  
+
+  ![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_disPatch_return_false.png)
+
+- View  的 TouchEvent 方法返回true,view消费事件
+
+![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_touch_event_return_true.png)
+
+## 总结 ##
+view的dispatchTouchEvent返回false，事件会被传递到父控件的OnTouchEvent
+
+####OnTouch(),OnTouchEvent(),Onclick()方法的优先级
+
+onTouch>onTouchEvent>onClick
+
+
+
+
+
+
