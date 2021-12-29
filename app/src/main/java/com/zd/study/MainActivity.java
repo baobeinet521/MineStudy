@@ -10,11 +10,13 @@ import com.zd.study.R;
 import com.zd.study.activity.LifeCycleActivity;
 import com.zd.study.handler.HandlerActivity;
 import com.zd.study.kotlin.StudyKotlinActivity;
+import com.zd.study.service.ServiceTestActivity;
 import com.zd.study.touchevent.TouchEventTestActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button mTestBtn;
     private Button mTouchEventTestBtn;
+    private Button mServiceTestBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //        mTestBtn.setOnClickListener(this);
         mTouchEventTestBtn = findViewById(R.id.touch_event_btn);
         mTouchEventTestBtn.setOnClickListener(this);
+        mServiceTestBtn = findViewById(R.id.service_test_btn);
+        mServiceTestBtn.setOnClickListener(this);
     }
 
     @Override
@@ -38,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.touch_event_btn:
                 intent.setClass(this, TouchEventTestActivity.class);
+                break;
+            case R.id.service_test_btn:
+                intent.setClass(this, ServiceTestActivity.class);
                 break;
         }
         startActivity(intent);

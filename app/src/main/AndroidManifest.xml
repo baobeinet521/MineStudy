@@ -25,6 +25,12 @@
             android:configChanges="orientation|screenSize"/>
         <activity android:name=".kotlin.StudyKotlinActivity"/>
         <activity android:name=".touchevent.TouchEventTestActivity"/>
+        <activity android:name=".service.ServiceTestActivity"/>
+        <service android:name=".service.IntentServiceTest"
+            android:exported="false"/>
+        <service android:name=".service.ServiceTest"
+            android:exported="false"/>
+
     </application>
 
 </manifest>
