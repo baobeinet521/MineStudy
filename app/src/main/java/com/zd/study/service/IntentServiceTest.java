@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 public class IntentServiceTest extends IntentService {
-    public static String TAG ="IntentServiceTest";
+    public static String TAG ="IntentZdServiceTest";
     public IntentServiceTest() {
         super("");
         Log.d(TAG,"IntentServiceTest 没有参数的构造方法=====");
@@ -25,4 +25,5 @@ public class IntentServiceTest extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
         Log.d(TAG,"onHandleIntent ======");
     }
+
 }

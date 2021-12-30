@@ -10,7 +10,7 @@ import android.util.Log;
 
 
 public class ServiceTest extends Service {
-    public static String TAG ="ServiceTest";
+    public static String TAG ="ZdServiceTest";
     @Override
     public void onCreate() {
         super.onCreate();
@@ -32,7 +32,7 @@ public class ServiceTest extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        Log.d(TAG,"IntentServiceTest ======");
+        Log.d(TAG,"onBind ======");
         return null;
     }
 
