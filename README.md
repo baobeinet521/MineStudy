@@ -1,16 +1,12 @@
 
-#学习笔记
+# 学习笔记
 
 
 
-- [android学习笔记测试](#android学习笔记)
-
-### <a id="android学习笔记">android学习笔记</a>
-
-- [测试](#android学习笔记)
+- [android学习笔记目录](#android学习笔记目录)
 
 
-### <a id="测试">[android学习笔记](#android学习笔记)</a>
+[activity学习](../MineStudy/docs/Android/activity.md)
 
 
 
