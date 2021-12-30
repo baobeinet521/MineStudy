@@ -1,5 +1,9 @@
 ## 一.Activity
 
+# Activity生命周期
+
+-![activity生命周期](..\img\activity\activity_lifecycle.png)
+
 ### 1.Activity的启动流程
 
 ### 2.onSaveInstanceState(),onRestoreInstanceState的调用时机
@@ -90,7 +94,7 @@ taskAffinity只有和SingleTask启动模式匹配使用时，启动的Activity�
 
 #### Activity四种启动模式常见使用场景
 
--![activity启动模式场景](..\img\activity启动模式\activity启动模式使用场景.png)
+-![activity启动模式场景](..\img\activity\activity启动模式使用场景.png)
 
 ### 4.Activity A跳转Activity B，再按系统返回键，生命周期执行的顺序
 
