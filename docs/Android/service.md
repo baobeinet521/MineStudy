@@ -59,7 +59,7 @@ Service，然后将该 Service 推到前台。 Android 8.0
 并声明此应用为 ANR
 
 
-![service生命周期](..\img\service\service_lifecycle.png)
+![service生命周期](../img/service/service_lifecycle.png)
 
 ### 1.service 的生命周期，两种启动方式的区别
 
