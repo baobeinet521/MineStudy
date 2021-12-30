@@ -3,10 +3,9 @@
 
 
 
-- [android学习笔记目录](#android学习笔记目录)
-
-
-[activity学习](/docs/Android/activity.md)
+- [activity学习](/docs/Android/activity.md)
+- [事件分发](/docs/Android/事件分发.md)
+- [service](/docs/Android/service.md)
 
 
 
