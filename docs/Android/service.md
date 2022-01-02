@@ -58,6 +58,7 @@ Service，然后将该 Service 推到前台。 Android 8.0
 如果应用在此时间限制内未调用 startForeground()，则系统将停止此 Service
 并声明此应用为 ANR
 
+- service生命周期
 
 ![service生命周期](../img/service/service_lifecycle.png)
 
@@ -79,8 +80,9 @@ Service，然后将该 Service 推到前台。 Android 8.0
 系统才会停止服务。如果将服务绑定到拥有用户焦点的
 Activity，则它其不太可能会终止；如果将服务声明为在前台运行，则其几乎永远不会终止。如果服务已启动并长时间运行，则系统逐渐降低其在后台任务列表中的位置，而服务被终止的概率也会大幅提升—如果服务是启动服务，则您必须将其设计为能够妥善处理系统执行的重启。如果系统终止服务，则其会在资源可用时立即重启服务，但这还取决于您从 onStartCommand() 返回的值
 
+-已启动并且还允许绑定的服务的生命周期，如下所示:
 
-![已启动并且还允许绑定的服务的生命周期，如下所示](..\img\service\service_mix_lifecycle.png)
+![已启动并且还允许绑定的服务的生命周期](..\img\service\service_mix_lifecycle.png)
 
 
 ### 2、Service与Activity怎么实现通信 ###
@@ -138,9 +140,17 @@ IntentService 类会执行以下操作：
 
 ###6.bindService和startService混合使用的生命周期以及怎么关闭
 
+- 先start service后bind service生命周期过程
 ![先start service后bind service生命周期过程](..\img\service\service_strat_bind.png)
 
-先启动服务再绑定服务，调用stop并不能销毁服务，只有调用unbindService，服务才会解绑并调用Serivce 的onDestory()方法
 
+- 先bind service后start service生命周期过程
 ![先start service后bind service生命周期过程](..\img\service\service_bind_strat.png)
-先绑定再启动服务服务，调用unbindService并不能销毁服务，只有调用stop才会停止服务并调用service的onDestory()方法
+
+ bindService和startService混合使用，无论是先启动服务还是绑定服务，stopService()或者stopSelf()只需要调一次即可，但是解绑服务需要把所有绑定在服务上的的组键都解绑，服务才会被销毁
+
+- start service和bind service生命周期混合使用onUnBind()返回true的生命周期
+
+![start service和bind service生命周期混合使用onUnBind()返回true的生命周期](..\img\service\混合生命周期_onUnBinder_return_true.png)
+
+onUnBind()返回true或者false只是决定重新绑定service的时候是否调用onRebind(),返回true重新绑定service的时候调用onRebind(),返回false不调用

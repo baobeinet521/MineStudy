@@ -22,14 +22,16 @@ public class ServiceTestActivity extends AppCompatActivity implements View.OnCli
     private AppCompatButton mTestBindService;
     private AppCompatButton mTestUnBindService;
     private AppCompatButton mTestIntentService;
+    private AppCompatButton mGotoTestService;
 
     private boolean isBindService = false;
 
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-
             Log.d(TAG, "onServiceConnected     componentName  = " + name);
+            ServiceTest.ServiceTestBinder binder = (ServiceTest.ServiceTestBinder) service;
+            binder.start();
 
         }
 
@@ -59,6 +61,11 @@ public class ServiceTestActivity extends AppCompatActivity implements View.OnCli
         mTestIntentService = findViewById(R.id.test_intent_service_btn);
         mTestIntentService.setOnClickListener(this);
 
+        mTestIntentService = findViewById(R.id.test_intent_service_btn);
+        mTestIntentService.setOnClickListener(this);
+
+        mGotoTestService = findViewById(R.id.goto_test_service_btn);
+        mGotoTestService.setOnClickListener(this);
     }
 
     @Override
@@ -67,32 +74,37 @@ public class ServiceTestActivity extends AppCompatActivity implements View.OnCli
         int id = v.getId();
         switch (id){
             case R.id.test_start_service_btn:
-                Log.d(TAG, " onClick start service -----");
+//                Log.d(TAG, " onClick start service -----");
                 startService(intent);
                 break;
             case R.id.test_stop_service_btn:
-                Log.d(TAG, " onClick stop service -----");
+//                Log.d(TAG, " onClick stop service -----");
                 stopService(intent);
                 break;
             case R.id.test_bind_service_btn:
-                Log.d(TAG, " onClick bind service -----");
+//                Log.d(TAG, " onClick bind service -----");
                 isBindService = bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
-                Log.d(TAG, " onClick bind service -----  isBindService = " + isBindService);
+//                Log.d(TAG, " onClick bind service -----  isBindService = " + isBindService);
                 break;
             case R.id.test_unbind_service_btn:
-                Log.d(TAG, " onClick unbind service -----");
+//                Log.d(TAG, " onClick unbind service -----");
                 if(isBindService){
-                    Log.d(TAG, "  有已绑定服务，可以解绑 -----");
+//                    Log.d(TAG, "  有已绑定服务，可以解绑 -----");
                     unbindService(mServiceConnection);
                     isBindService = false;
                 } else {
-                    Log.d(TAG, "  没有已经绑定服务，不可以解绑 -----");
+//                    Log.d(TAG, "  没有已经绑定服务，不可以解绑 -----");
                 }
                 break;
             case R.id.test_intent_service_btn:
-                Log.d(TAG, " onClick start intentService -----");
+//                Log.d(TAG, " onClick start intentService -----");
                 Intent intentSer = new Intent(this, IntentServiceTest.class);
                 startService(intentSer);
+                break;
+
+            case R.id.goto_test_service_btn:
+                Intent intentAct = new Intent(this, ServiceTestActivity.class);
+                startActivity(intentAct);
                 break;
         }
 
