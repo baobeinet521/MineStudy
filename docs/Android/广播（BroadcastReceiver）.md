@@ -71,6 +71,8 @@ Android中内置了很多系统广播：只要涉及到手机的基本操作(开
 使用方式上与全局广播几乎相同，只是注册/取消注册广播接收器和发送广播时将参数的context变成了LocalBroadcastManager的单一实例
 
 > 注：对于LocalBroadcastManager方式发送的应用内广播，只能通过LocalBroadcastManager动态注册，不能静态注册
+> LocalBroadcast有如下缺点：
+1.不能跨进程。即使本应用里的两个进程之间也无法通信
 
 ## 2.广播的两种注册方式的区别
 动态注册和静态注册两种

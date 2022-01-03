@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
@@ -19,6 +20,7 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
     private AppCompatButton mLocalBroadcast;
     private BroadcastReceiverOne mBroadcastReceiverOne;
     private BroadcastReceiverTwo mBroadcastReceiverTwo;
+    private LocalBroadCastReceiverTest mLocalBroadcastReceiver;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,9 +39,11 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
 
         mBroadcastReceiverOne = new BroadcastReceiverOne();
         mBroadcastReceiverTwo = new BroadcastReceiverTwo();
+        mLocalBroadcastReceiver = new LocalBroadCastReceiverTest();
 
         registerBroadcast();
         registerBroadcastTwo();
+        registerLocalBroadCastReceiver();
 
     }
 
@@ -55,6 +59,14 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("order_broadcast_receiver");
         registerReceiver(mBroadcastReceiverTwo,intentFilter);
+    }
+
+    public void registerLocalBroadCastReceiver(){
+        LocalBroadcastManager mManager = LocalBroadcastManager.getInstance(this);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("local_broadcast_receiver");
+        mManager.registerReceiver(mLocalBroadcastReceiver,intentFilter);
+
     }
     @Override
     public void onClick(View v) {
@@ -75,6 +87,11 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
             case R.id.stick_broadcast_receiver:
                 break;
             case R.id.local_broadcast_receiver:
+                Intent localIntent = new Intent();
+                localIntent.setAction("local_broadcast_receiver");
+                localIntent.putExtra("test_local","这是本地广播原始数据====");
+                LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
+
                 break;
 
 
@@ -91,6 +108,7 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
         if(mBroadcastReceiverTwo != null){
             unregisterReceiver(mBroadcastReceiverTwo);
         }
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mLocalBroadcastReceiver);
 
     }
 }
