@@ -9,6 +9,8 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.zd.study.handler.HandlerActivity;
+
 
 public class ServiceTest extends Service {
     public static String TAG ="ZdServiceTest";
@@ -31,6 +33,10 @@ public class ServiceTest extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d(TAG,"onStartCommand ======");
+
+//        Intent intentCe = new Intent(this, HandlerActivity.class);
+//        startActivity(intentCe);
+
         return super.onStartCommand(intent, flags, startId);
     }
 

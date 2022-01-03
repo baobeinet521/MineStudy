@@ -25,7 +25,13 @@
             android:configChanges="orientation|screenSize"/>
         <activity android:name=".kotlin.StudyKotlinActivity"/>
         <activity android:name=".touchevent.TouchEventTestActivity"/>
-        <activity android:name=".service.ServiceTestActivity"/>
+        <activity android:name=".broadcast.TestBroadcastReceiverActivity"/>
+
+        <activity android:name=".activity.TestFlagActivity"
+            android:taskAffinity="com.zd.test.flag.new.task"/>
+        <activity android:name=".service.ServiceTestActivity"
+            android:taskAffinity="com.zd.study"
+            android:launchMode="singleTask"/>
         <service android:name=".service.IntentServiceTest"
             android:exported="false"/>
         <service android:name=".service.ServiceTest"

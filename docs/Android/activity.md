@@ -75,14 +75,21 @@ implementation.
 启动模式可以在AndroidMainfest的xml文件中进行配置，GoogleAndroid团队同时提供另种级别更高的设置方式，即通过Intent.setFlags(int
 flags)设置启动模式；
 
-- FLAG_ACTIVITY_CLEAR_TOP : 等同于mainfest中配置的singleTask；
-- FLAG_ACTIVITY_SINGLE_TOP: 同样等同于mainfest中配置的singleTop;
-- FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS:
+- FLAG_ ACTIVITY _CLEAR _TOP : 等同于mainfest中配置的singleTask；
+- FLAG_ ACTIVITY _SINGLE _TOP: 同样等同于mainfest中配置的singleTop;
+- FLAG_ ACTIVITY_ EXCLUDE_ FROM_ RECENTS:
   其对应在AndroidManifest中的属性为android:excludeFromRecents=“true”,当用户按了“最近任务列表”时候,该Task不会出现在最近任务列表中，可达到隐藏应用的目的。
 - FLAG_ACTIVITY_NO_HISTORY:
   对应在AndroidManifest中的属性为:android:noHistory=“true”，这个FLAG启动的Activity，一旦退出，它不会存在于栈中。
 - FLAG_ACTIVITY_NEW_TASK:
   这个属性需要在被start的目标Activity在AndroidManifest.xml文件配置taskAffinity的值【必须和startActivity发起者Activity的包名不一样，如果是跳转另一个App的话可以taskAffinity可以省略】，则会在新标记的Affinity所存在的taskAffinity中压入这个Activity。
+  在新的 task 中启动 activity。如果要启动的 activity 已经运行于某 task 中，则那个 task 将调入前台，最后保存的状态也将恢复，activity 将在onNewIntent()中接收到这个新 intent。
+
+##总结：
+
+1、FLAG_ACTIVITY_NEW_TASK标签必须配合taskAffinity属性使用，如果不设置taskAffinity属性值，将不会生成新task。
+
+2、当从启动模式为singleInstance的Acitivity中启动新的Acitivity时，新的Activity自带FLAG_ACTIVITY_NEW_TASK标签。
 
 ### (二)、taskAffinity属性
 
