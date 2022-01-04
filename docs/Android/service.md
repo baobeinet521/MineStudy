@@ -89,6 +89,13 @@ Activity，则它其不太可能会终止；如果将服务声明为在前台运
 
 通过Binder或者广播通信
 
+- Activity调用bindService (Intent service, ServiceConnection conn, int flags)方法，得到Service对象的一个引用，这样Activity可以直接调用到Service中的方法，如果要主动通知Activity，我们可以利用回调方法
+- Service向Activity发送消息，可以使用广播，当然Activity要注册相应的接收器。比如Service要向多个Activity发送同样的消息的话，用这种方法就更好
+
+————————————————
+版权声明：本文为CSDN博主「xiaanming」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/xiaanming/article/details/9750689
+
 ###4.IntentService是什么,IntentService原理，应用场景及其与Service的区别
 
  IntentService是 Service 的子类，其使用工作线程逐一处理所有启动请求。如果不要求服务同时处理多个请求，此类为最佳选择。实现 onHandleIntent()，该方法会接收每个启动请求的 Intent，以便执行后台工作
