@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.test_activity_btn:
 //                Intent intent = new Intent(this, HandlerActivity.class);
 //                Intent intent = new Intent(this, LifeCycleActivity.class);
-                // 获取当前线程的堆栈
-                for (StackTraceElement i : Thread.currentThread().getStackTrace()) {
-                    Log.i(TAG, "MainActivity=====     " + i.toString());
-                }
 //                Intent intentTest = new Intent();
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setClass(this, TestFlagActivity.class);

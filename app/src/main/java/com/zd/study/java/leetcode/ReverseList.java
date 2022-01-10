@@ -90,4 +90,19 @@ public class ReverseList {
         return result.next;
 
     }
+
+    public ListNode reverseList1(ListNode head) {
+        if (head == null || head.next == null){
+            return head;
+        }
+        ListNode resNode = null;
+        while(head != null){
+            ListNode tempNode = head.next;
+            head.next = resNode;
+            resNode = head;
+            head = tempNode;
+        }
+        return resNode;
+
+    }
 }

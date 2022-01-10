@@ -2,6 +2,7 @@ package com.zd.study.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
@@ -19,6 +20,8 @@ public class TestFlagActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.acticity_test_flag_layout);
+        Log.e("zdTest  ","=======TestFlagActivity======onCreate====");
+        Log.i("zdTest", "=======TestFlagActivity======onCreate=====Process==id==: " + Process.myPid());
         mButton = findViewById(R.id.go_to_one_Activity);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
