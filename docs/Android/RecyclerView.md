@@ -11,6 +11,64 @@
 
 先从 1 级找，然后 2 级...然后4 级，找不到 create ViewHolder
 
+ 
+##  详细说明
+[深入理解 RecyclerView 的缓存机制](https://juejin.cn/post/6844904146684870669)
+
+
+
+在创建 ViewHolder 之前，RecyclerView 会先从缓存中尝试获取是否有符合要求的 ViewHolder，详见 Recycler#tryGetViewHolderForPositionByDeadline 方法
+
+
+
+- 第一次，尝试从 mChangedScrap 中获取。
+
+    只有在 mState.isPreLayout() 为 true 时，也就是预布局阶段，才会做这次尝试。
+   「预布局」的概念会在介绍。
+
+
+
+
+- 第二次，getScrapOrHiddenOrCachedHolderForPosition() 获得 ViewHolder。
+
+  尝试从 1. mAttachedScrap 2.mHiddenViews 3.mCachedViews 中查找 ViewHolder
+
+  其中 mAttachedScrap 和 mCachedViews 都是 Recycler 的成员变量
+  如果成功获得 ViewHolder 则检验其有效性，
+
+  若检验失败则将其回收到 RecyclerViewPool 中
+  检验成功可以直接使用
+
+
+
+- 第三次，如果给 Adapter 设置了 stableId，调用 getScrapOrCachedViewForId 尝试获取 ViewHolder。
+
+  跟第二次的区别在于，之前是根据 position 查找，现在是根据 id 查找
+
+
+
+
+- 第四次，mViewCacheExtension 不为空的话，则调用 ViewCacheExtension#getViewForPositionAndType 方法尝试获取 View
+
+
+
+> 注：ViewCacheExtension 是由开发者设置的，默认情况下为空，一般我们也不会设置。这层缓存大部分情况下可以忽略。
+
+
+
+
+- 第五次。尝试从 RecyclerViewPool 中获取，相比较于 mCachedViews，从 mRecyclerPool 中成功获取 
+   ViewHolder 对象后并没有做合法性和 item 位置校验，只检验 viewType 是否一致。
+
+  从 RecyclerViewPool 中取出来的 ViewHolder 需要重新执行 bind 才能使用。
+
+
+如果上面五次尝试都失败了，调用 RecyclerView.Adapter#createViewHolder 创建一个新的 ViewHolder
+最后根据 ViewHolder 的状态，确定是否需要调用 bindViewHolder 进行数据绑定。
+
+
+![RcyclerView缓存执行说明图](../img/recyclerview/cacheview.png)
+
 
 ####先来温习一下RecyclerView的滚动和回收机制：
 RecyclerView之所以能滚动，就是因为它在监听到手指滑动之后，不断地更新Item的位置，也就是反复layout子View了，这部分工作由LayoutManager负责。
