@@ -41,38 +41,38 @@ activity的dispatchTouchEvent返回true和false事件都会被消费
   
 *返回false会询问父控件onTouchEvent是否消费事件*
 
-![viewGroup的dispatchTouchEvent返回false](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_disPatch_return_false.png)
+![viewGroup的dispatchTouchEvent返回false](../MineStudy/docs/img/事件分发/viewGroup_disPatch_return_false.png)
 
  - ViewGroup 的 onInterceptTouchEvent 返回false
   
-![viewGroup的onInterceptTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_intercept_return_false.png)
+![viewGroup的onInterceptTouchEvent返回true](../MineStudy/docs/img/事件分发/viewGroup_intercept_return_false.png)
 
  - ViewGroup 的   onInterceptTouchEvent super.onInterceptTouchEvent(ev)    TouchEvent 方法返回true
  
-![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_superonintercept_onTouchEvent_return_true.png)
+![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/viewGroup_superonintercept_onTouchEvent_return_true.png)
 
  - ViewGroup 的   onInterceptTouchEvent return true    TouchEvent 方法返回super.TouchEvent()
  
-![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_super.png)
+![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_super.png)
 
 - ViewGroup 的   onInterceptTouchEvent return true    TouchEvent 方法返回true
 
-![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_return_true.png)
+![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/viewGroup_onIntercept_return_true_touchevent_return_true.png)
 ## 总结 ##
 viewGroup的dispatchTouchEvent返回false，事件会被传递到父控件的OnTouchEvent
  
  ***
  - View  的 dispatchTouchEvent 方法返回true  事件直接被消费
 
-![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_disPatch_return_true.png)
+![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/view_disPatch_return_true.png)
 
 - View  的 dispatchTouchEvent 方法返回false  
 
-  ![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_disPatch_return_false.png)
+  ![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/view_disPatch_return_false.png)
 
 - View  的 TouchEvent 方法返回true,view消费事件
 
-![view的dispatchTouchEvent返回true](file:///C:/zd/zdgitworksapce/MineStudy/docs/img/事件分发/view_touch_event_return_true.png)
+![view的dispatchTouchEvent返回true](../MineStudy/docs/img/事件分发/view_touch_event_return_true.png)
 
 ## 总结 ##
 view的dispatchTouchEvent返回false，事件会被传递到父控件的OnTouchEvent
@@ -80,6 +80,11 @@ view的dispatchTouchEvent返回false，事件会被传递到父控件的OnTouchE
 ####OnTouch(),OnTouchEvent(),Onclick()方法的优先级
 
 onTouch>onTouchEvent>onClick
+
+
+[广播分类以及使用场景](https://www.jianshu.com/p/24c31ee475b4)
+
+
 
 
 
