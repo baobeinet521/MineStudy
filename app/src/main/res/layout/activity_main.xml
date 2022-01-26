@@ -11,13 +11,44 @@
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <Button
-            android:id="@+id/touch_event_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="事件分发测试"
-            android:background="#6778001f"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/test_activity_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="activity学习"
+                android:background="#6778001f"/>
+            <Button
+                android:id="@+id/touch_event_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="事件分发测试"
+                android:background="#6778001f"/>
+
+            <Button
+                android:id="@+id/service_test_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="service测试"
+                android:background="#6778001f"/>
+
+            <Button
+                android:id="@+id/broadcast_test_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="广播测试"
+                android:background="#6778001f"/>
+        </LinearLayout>
+
 
     </ScrollView>
 

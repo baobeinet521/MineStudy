@@ -113,6 +113,9 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
         handlerRunnable.post(new Runnable() {
             @Override
             public void run() {
+                Message msg = new Message();
+                handlerRunnable.obtainMessage();
+                Message msg1 = Message.obtain();
                 mTxtTest.setText("handlerRunnable 刷新UI:我想要一个车车");
             }
         });
