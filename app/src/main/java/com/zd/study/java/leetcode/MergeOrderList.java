@@ -1,5 +1,7 @@
 package com.zd.study.java.leetcode;
 
+import com.zd.study.java.bean.ListNode;
+
 public class MergeOrderList {
     public static void main(String[] args){
 

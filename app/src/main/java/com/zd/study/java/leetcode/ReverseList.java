@@ -1,6 +1,7 @@
 package com.zd.study.java.leetcode;
 
-import java.util.List;
+import com.zd.study.java.bean.ListNode;
+
 import java.util.Stack;
 import java.util.Vector;
 

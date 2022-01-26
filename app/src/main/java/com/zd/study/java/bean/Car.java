@@ -1,4 +1,4 @@
-package com.zd.study.java;
+package com.zd.study.java.bean;
 
 import java.lang.ref.WeakReference;
 

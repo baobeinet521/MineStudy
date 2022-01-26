@@ -1,14 +1,11 @@
-package com.zd.study.java;
+package com.zd.study.java.practice;
 
-import com.zd.study.java.leetcode.ListNode;
+import com.zd.study.java.bean.ListNode;
 import com.zd.study.java.leetcode.TreeNode;
 
-import java.lang.ref.WeakReference;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
@@ -38,7 +35,7 @@ public class Test {
         }
     }
 
-    public ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode head) {
         if(head == null || head.next == null){
             return head;
         }

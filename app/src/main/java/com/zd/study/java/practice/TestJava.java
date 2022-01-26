@@ -1,7 +1,4 @@
-package com.zd.study.java;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.zd.study.java.practice;
 
 public class TestJava {
 

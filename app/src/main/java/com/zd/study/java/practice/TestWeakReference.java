@@ -1,4 +1,6 @@
-package com.zd.study.java;
+package com.zd.study.java.practice;
+
+import com.zd.study.java.bean.Car;
 
 import java.lang.ref.WeakReference;
 

@@ -1,4 +1,4 @@
-package com.zd.study.java;
+package com.zd.study.java.bean;
 
 public class Student {
     private int age;

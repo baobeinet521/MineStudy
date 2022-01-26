@@ -1,4 +1,4 @@
-package com.zd.study.java.leetcode;
+package com.zd.study.java.bean;
 
 public class ListNode {
     public int val;
