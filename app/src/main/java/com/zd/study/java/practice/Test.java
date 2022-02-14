@@ -14,10 +14,10 @@ import java.util.Queue;
 public class Test {
     public static void main(String[] args) {
 
-//        testReverseList();
-        int[] test = new int[]{4,7,3,5};
-        int[] res = sortArrayByHeap(test);
-        System.out.println(Arrays.toString(res));
+        testReverseList();
+//        int[] test = new int[]{4,7,3,5};
+//        int[] res = sortArrayByHeap(test);
+//        System.out.println(Arrays.toString(res));
     }
 
     /**
@@ -39,18 +39,15 @@ public class Test {
         if(head == null || head.next == null){
             return head;
         }
-
-        ListNode curNode = null;
-        ListNode temp;
-
+        ListNode temp = null;
+        ListNode cur = null;
         while (head != null){
-            temp = head.next;
-            head.next = curNode;
-            curNode = head;
-            head = temp;
-
+            cur = head.next;
+            head.next = temp;
+            temp = head;
+            head = cur;
         }
-        return curNode;
+        return temp;
     }
 
 
