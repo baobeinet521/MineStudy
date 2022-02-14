@@ -24,6 +24,9 @@ public class LRUCache{
     public int get(int key) {
         if(mHashMap.containsKey(key)){
             //todo(删掉该节点，并且把节点移到头部)
+            DLinkedNode node = mHashMap.get(key);
+            removeNode(node);
+            addNodeToHead(node);
             return mHashMap.get(key).value;
         }else {
             return -1;
@@ -59,9 +62,9 @@ public class LRUCache{
     }
 
     public void addNodeToHead(DLinkedNode node){
-        node.next = mTempHead.next.next;
+        node.next = mTempHead.next;
         node.pre = mTempHead;
-        mTempHead.next.next.pre = node;
+        mTempHead.next.pre = node;
         node.pre = mTempHead;
     }
 
