@@ -16,14 +16,13 @@ public class LRUCache{
         this.mCapacity = capacity;
         mTempHead = new DLinkedNode();
         mTempTail = new DLinkedNode();
-
+        mSize = 0;
         mTempHead.next = mTempTail;
         mTempTail.pre = mTempHead;
     }
 
     public int get(int key) {
         if(mHashMap.containsKey(key)){
-            //todo(删掉该节点，并且把节点移到头部)
             DLinkedNode node = mHashMap.get(key);
             removeNode(node);
             addNodeToHead(node);
@@ -35,18 +34,20 @@ public class LRUCache{
     }
 
     public void put(int key, int value) {
-        DLinkedNode temp = new DLinkedNode(key, value);
         //超过容量 删除尾部节点，并且把新该节点放在头部，没有超过容量直接把节点放在头部
         if(mHashMap.containsKey(key)){
-            mHashMap.put(key, temp);
-            removeNode(temp);
-            addNodeToHead(temp);
+            DLinkedNode node = mHashMap.get(key);
+            removeNode(node);
+            node.value = value;
+            mHashMap.put(key, node);
+            addNodeToHead(node);
         } else {
-            if(mSize > mCapacity){
-                removeTailNode(mTempTail.pre);
+            DLinkedNode temp = new DLinkedNode(key, value);
+            if(mSize >= mCapacity){
                 mHashMap.remove(mTempTail.pre.key);
+                removeTailNode();
+                mHashMap.put(key,temp);
                 addNodeToHead(temp);
-                mSize--;
             }else{
                 addNodeToHead(temp);
                 mHashMap.put(key, temp);
@@ -55,7 +56,7 @@ public class LRUCache{
         }
     }
 
-    public void removeTailNode(DLinkedNode node){
+    public void removeTailNode(){
         mTempTail.pre.pre.next = mTempTail;
         mTempTail.pre = mTempTail.pre.pre;
 
@@ -65,12 +66,11 @@ public class LRUCache{
         node.next = mTempHead.next;
         node.pre = mTempHead;
         mTempHead.next.pre = node;
-        node.pre = mTempHead;
+        mTempHead.next = node;
     }
 
     public void removeNode(DLinkedNode node){
         node.pre.next = node.next;
         node.next.pre = node.pre;
-
     }
 }
