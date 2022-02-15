@@ -194,7 +194,7 @@ public class Test {
         for (int i = 0; i < s.length(); i++){
             start = Math.max(start, index[s.charAt(i)] + 1);
             result = Math.max(result, i - start + 1);
-            index[s.charAt(i)] = start + 1;
+            index[s.charAt(i)] = i;
 
         }
         return result;
