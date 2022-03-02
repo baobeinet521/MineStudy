@@ -234,4 +234,45 @@ public class Test {
         }
         return null;
     }
+
+    public int findKthLargest(int[] nums, int k) {
+        if(nums == null || nums.length == 0){
+            return 0;
+        }
+
+        if (k > nums.length){
+            return 0;
+        }
+
+        int[] result = sortData(nums, 0, nums.length - 1);
+
+        return result[nums.length - k];
+
+    }
+
+
+    public ArrayList<Integer> GetLeastNumbers_Solution(int [] input, int k) {
+        ArrayList<Integer> result = new ArrayList<>();
+        if(input == null || input.length == 0){
+            return result;
+        }
+        if(k >= input.length){
+            for(int i = 0; i < input.length; i++ ){
+                result.add(input[i]);
+            }
+            return result;
+        }
+
+        int[] sortResult = sortData(input, 0, input.length - 1);
+
+        for(int i = 0; i < k; i++ ){
+            result.add(sortResult[i]);
+        }
+        return result;
+
+    }
+
+//    public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
+//        // write code here
+//    }
 }

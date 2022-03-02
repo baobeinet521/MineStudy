@@ -46,8 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                Intent intent = new Intent(this, LifeCycleActivity.class);
 //                Intent intentTest = new Intent();
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setClass(this, TestFlagActivity.class);
+//                intent.setClass(this, TestFlagActivity.class);
 //                startActivity(intentTest);
+                SingleInstanceD mSingleInstanceD = SingleInstanceD.getInstance();
+                System.out.println("_____分割线_______");
+                mSingleInstanceD.testPrint();
+
 
                 break;
             case R.id.touch_event_btn:
