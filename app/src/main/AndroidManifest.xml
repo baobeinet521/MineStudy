@@ -22,8 +22,7 @@
 
         <activity android:name=".handler.HandlerActivity"/>
 
-        <activity android:name=".activity.LifeCycleActivity"
-            android:configChanges="orientation|screenSize"/>
+        <activity android:name=".activity.LifeCycleActivity" />
         <activity android:name=".kotlin.StudyKotlinActivity"/>
         <activity android:name=".touchevent.TouchEventTestActivity"/>
         <activity android:name=".broadcast.TestBroadcastReceiverActivity"/>

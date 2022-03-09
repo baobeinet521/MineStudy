@@ -1,6 +1,8 @@
 package com.zd.study;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "------------onCreate---------");
         setContentView(R.layout.activity_main);
         mTestBtn = findViewById(R.id.test_activity_btn);
         mTestBtn.setOnClickListener(this);
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBroadcastReceiverBtn.setOnClickListener(this);
     }
 
+
+
     @Override
     public void onClick(View v) {
         int id = v.getId();
@@ -43,14 +48,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.test_activity_btn:
 //                Intent intent = new Intent(this, HandlerActivity.class);
-//                Intent intent = new Intent(this, LifeCycleActivity.class);
+                 intent = new Intent(this, LifeCycleActivity.class);
 //                Intent intentTest = new Intent();
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                intent.setClass(this, TestFlagActivity.class);
 //                startActivity(intentTest);
-                SingleInstanceD mSingleInstanceD = SingleInstanceD.getInstance();
-                System.out.println("_____分割线_______");
-                mSingleInstanceD.testPrint();
+//                SingleInstanceD mSingleInstanceD = SingleInstanceD.getInstance();
+//                System.out.println("_____分割线_______");
+//                mSingleInstanceD.testPrint();
 
 
                 break;
@@ -66,4 +71,56 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(TAG, "------------onStart---------");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "------------onRestart---------");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "------------onResume---------");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(TAG, "------------onPause---------");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "------------onStop---------");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "------------onDestroy---------");
+    }
+
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+
+        Log.d(TAG, "------------onSaveInstanceState---------");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "------------onRestoreInstanceState---------");
+    }
+
 }

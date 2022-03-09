@@ -47,6 +47,11 @@ public class LifeCycleActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "------------onStop---------");
+    }
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         Log.d(TAG, "------------onDestroy---------");
