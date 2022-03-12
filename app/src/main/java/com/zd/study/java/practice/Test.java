@@ -10,6 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
@@ -275,4 +276,17 @@ public class Test {
 //    public ArrayList<ArrayList<Integer>> levelOrder (TreeNode root) {
 //        // write code here
 //    }
+
+    List<Integer> result = new ArrayList<>();
+    public List<Integer> preorderTraversal(TreeNode root) {
+        if(root == null){
+            return result;
+        }
+        result.add(root.val);
+        preorderTraversal(root.left);
+        preorderTraversal(root.right);
+        return result;
+    }
+
+
 }
