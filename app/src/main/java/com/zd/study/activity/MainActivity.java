@@ -1,4 +1,4 @@
-package com.zd.study;
+package com.zd.study.activity;
 
 import android.content.Intent;
 import android.os.PersistableBundle;
@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mTouchEventTestBtn;
     private Button mServiceTestBtn;
     private Button mBroadcastReceiverBtn;
+    private Button mAIDLBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mServiceTestBtn.setOnClickListener(this);
         mBroadcastReceiverBtn = findViewById(R.id.broadcast_test_btn);
         mBroadcastReceiverBtn.setOnClickListener(this);
+        mAIDLBtn = findViewById(R.id.aidl_test_btn);
+        mAIDLBtn.setOnClickListener(this);
     }
 
 
@@ -67,6 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.broadcast_test_btn:
                 intent.setClass(this, TestBroadcastReceiverActivity.class);
+                break;
+            case R.id.aidl_test_btn:
+                intent.setClass(this, BookManagerActivity.class);
                 break;
         }
         startActivity(intent);

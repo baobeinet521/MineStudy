@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">StudyApplication</string>
+    <string name="bind_service">绑定服务</string>
 </resources>

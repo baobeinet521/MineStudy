@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zd.study">
+    <permission android:name="com.zd.study.permission.ACCESS_BOOK_SERVICE"
+        android:protectionLevel="normal"/>
 
     <application
         android:name=".StudyApplication"
@@ -11,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyApplication">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,10 +35,18 @@
         <activity android:name=".service.ServiceTestActivity"
             android:taskAffinity="com.zd.study"
             android:launchMode="singleTask"/>
+
+        <activity android:name=".activity.BookManagerActivity"
+            android:process=":remote" />
+
+        <!--  service      -->
         <service android:name=".service.IntentServiceTest"
             android:exported="false"/>
         <service android:name=".service.ServiceTest"
             android:exported="false"/>
+        <service android:name=".service.BookManagerService"
+            android:enabled="true"
+            android:exported="true"/>
 
     </application>
 
