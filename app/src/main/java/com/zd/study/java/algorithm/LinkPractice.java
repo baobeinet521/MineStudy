@@ -1,9 +1,8 @@
-package com.zd.study.java.leetcode;
+package com.zd.study.java.algorithm;
 
 import com.zd.study.java.bean.ListNode;
 
 import java.util.HashSet;
-import java.util.List;
 
 public class LinkPractice {
     public static void main(String[] args) {

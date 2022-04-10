@@ -1,14 +1,11 @@
-package com.zd.study.java.leetcode;
+package com.zd.study.java.algorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Stack;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 public class BinaryTreeTest {
     private static int count = 0;

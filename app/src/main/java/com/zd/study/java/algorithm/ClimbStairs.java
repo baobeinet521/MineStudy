@@ -1,4 +1,4 @@
-package com.zd.study.java.leetcode;
+package com.zd.study.java.algorithm;
 
 public class ClimbStairs {
     public static void main(String[] args) {

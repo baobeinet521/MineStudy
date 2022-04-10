@@ -1,16 +1,14 @@
 package com.zd.study.java.practice;
 
 import com.zd.study.java.bean.ListNode;
-import com.zd.study.java.leetcode.TreeNode;
+import com.zd.study.java.algorithm.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Stack;
 
 public class Test {
     public static void main(String[] args) {
