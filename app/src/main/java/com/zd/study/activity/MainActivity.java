@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mServiceTestBtn;
     private Button mBroadcastReceiverBtn;
     private Button mAIDLBtn;
+    private Button mDrawBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBroadcastReceiverBtn.setOnClickListener(this);
         mAIDLBtn = findViewById(R.id.aidl_test_btn);
         mAIDLBtn.setOnClickListener(this);
+        mDrawBtn = findViewById(R.id.draw_view_test_btn);
+        mDrawBtn.setOnClickListener(this);
     }
 
 
@@ -73,6 +76,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.aidl_test_btn:
                 intent.setClass(this, BookManagerActivity.class);
+                break;
+            case R.id.draw_view_test_btn:
+                intent.setClass(this, DrawViewActivity.class);
                 break;
         }
         startActivity(intent);

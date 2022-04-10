@@ -38,6 +38,7 @@
 
         <activity android:name=".activity.BookManagerActivity"
             android:process=":remote" />
+        <activity android:name=".activity.DrawViewActivity"/>
 
         <!--  service      -->
         <service android:name=".service.IntentServiceTest"

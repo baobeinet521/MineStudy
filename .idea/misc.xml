@@ -11,6 +11,7 @@
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_service_test_layout.xml" value="0.264" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_touch_event_layout.xml" value="0.2625" />
+        <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/draw_circle_layout.xml" value="0.13168516649848638" />
       </map>
     </option>
   </component>
@@ -23,7 +24,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.264" />
+        <option name="scale" value="0.13168516649848638" />
       </ProjectState>
     </option>
   </component>
