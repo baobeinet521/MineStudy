@@ -1,5 +1,6 @@
 package com.zd.study.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -7,6 +8,10 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+
+import com.zd.study.R;
 
 /**
  * Activity 横竖屏切换  生命周期
@@ -15,10 +20,21 @@ public class LifeCycleActivity extends AppCompatActivity {
 
     public static String TAG = "LifeCycleActivity";
 
+    private Button mTest;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lifecycle_layout);
         Log.d(TAG, "------------onCreate---------");
+        mTest = findViewById(R.id.test);
+        mTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LifeCycleActivity.this, TestFlagActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -82,5 +98,11 @@ public class LifeCycleActivity extends AppCompatActivity {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         Log.d(TAG, "------------onConfigurationChanged---------");
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.d(TAG, "------------onNewIntent---------");
     }
 }
