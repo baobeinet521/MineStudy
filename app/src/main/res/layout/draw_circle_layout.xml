@@ -16,5 +16,14 @@
         app:circle_color="@color/purple_200"
         android:background="@color/black"/>
 
+    <com.zd.study.viewdraw.MyButton
+        android:id="@+id/my_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+    </com.zd.study.viewdraw.MyButton>
+
 
 </android.support.constraint.ConstraintLayout>

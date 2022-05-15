@@ -3,6 +3,8 @@
     package="com.zd.study">
     <permission android:name="com.zd.study.permission.ACCESS_BOOK_SERVICE"
         android:protectionLevel="normal"/>
+    <permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
 
     <application
         android:name=".StudyApplication"
@@ -24,14 +26,16 @@
 
         <activity android:name=".handler.HandlerActivity"/>
 
-        <activity android:name=".activity.LifeCycleActivity" />
+        <activity android:name=".activity.LifeCycleActivity"
+            android:launchMode="singleTask"/>
         <activity android:name=".kotlin.StudyKotlinActivity"/>
         <activity android:name=".touchevent.TouchEventTestActivity"/>
         <activity android:name=".broadcast.TestBroadcastReceiverActivity"/>
+        <activity android:name=".activity.TestLocalThreadActivity"/>
 
-        <activity android:name=".activity.TestFlagActivity"
-            android:taskAffinity="com.zd.test.flag.new.task"
-            android:process="zd.ceshi.process"/>
+        <activity android:name=".activity.TestFlagActivity" />
+<!--        android:taskAffinity="com.zd.test.flag.new.task"-->
+<!--        android:process="zd.ceshi.process"-->
         <activity android:name=".service.ServiceTestActivity"
             android:taskAffinity="com.zd.study"
             android:launchMode="singleTask"/>
