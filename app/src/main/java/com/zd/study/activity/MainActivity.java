@@ -8,15 +8,16 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.PersistableBundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.zd.study.R;
 import com.zd.study.broadcast.TestBroadcastReceiverActivity;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mAIDLBtn;
     private Button mDrawBtn;
     private Button mTestLocalThreadBtn;
+    private Button mVedioTestBtn;
 
     public boolean CanShowFloat = false;
 
@@ -55,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawBtn.setOnClickListener(this);
         mTestLocalThreadBtn = findViewById(R.id.local_thread_test_btn);
         mTestLocalThreadBtn.setOnClickListener(this);
+        mVedioTestBtn = findViewById(R.id.vedio_test_btn);
+        mVedioTestBtn.setOnClickListener(this);
+        mServiceTestBtn.invalidate();
     }
 
 
@@ -105,6 +110,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.local_thread_test_btn:
                 intent.setClass(this, TestLocalThreadActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.vedio_test_btn:
+                intent.setClass(this, VedioPlayerTestActivity.class);
                 startActivity(intent);
                 break;
         }

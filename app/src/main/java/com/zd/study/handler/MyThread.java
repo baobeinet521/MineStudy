@@ -3,8 +3,9 @@ package com.zd.study.handler;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import com.zd.study.utils.Utils;
 

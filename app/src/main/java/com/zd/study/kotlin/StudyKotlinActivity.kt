@@ -1,15 +1,14 @@
 package com.zd.study.kotlin
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.zd.study.R
-import kotlinx.android.synthetic.main.activity_kotlin_layout.*
 
 class StudyKotlinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kotlin_layout)
-        test_btn.setOnClickListener{
+//        test_btn.setOnClickListener{
 //            val c:Int = sum(2 ,3)
 //            println("两个整数的和是c是  $c")
 //            val  d = sumOne(6 , 7)
@@ -21,10 +20,10 @@ class StudyKotlinActivity : AppCompatActivity() {
 //            printSum(40,50)
 //
 //            vars(1,2,3,4,5)
-            var sumLambda:(Int, Int) -> Int = {x,y -> x + y}
-            println(sumLambda(10, 20))
-
-        }
+//            var sumLambda:(Int, Int) -> Int = {x,y -> x + y}
+//            println(sumLambda(10, 20))
+//
+//        }
     }
 
     private fun sum(a:Int, b:Int):Int{

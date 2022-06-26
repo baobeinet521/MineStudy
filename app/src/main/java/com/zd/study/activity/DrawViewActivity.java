@@ -4,14 +4,16 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
 
 import com.zd.study.R;
 import com.zd.study.viewdraw.MyButton;
 
 public class DrawViewActivity extends Activity {
-    private MyButton mMyButton;
+    private View mMyButton;
     private Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

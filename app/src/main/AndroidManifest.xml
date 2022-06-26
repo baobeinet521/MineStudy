@@ -4,6 +4,7 @@
     <permission android:name="com.zd.study.permission.ACCESS_BOOK_SERVICE"
         android:protectionLevel="normal"/>
     <permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
     <application
@@ -52,6 +53,8 @@
         <service android:name=".service.BookManagerService"
             android:enabled="true"
             android:exported="true"/>
+        <activity android:name=".activity.VedioPlayerTestActivity"
+            android:exported="false"></activity>
 
     </application>
 

@@ -2,7 +2,6 @@ package com.zd.study.viewdraw;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
-import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 import android.view.Display;
 import android.view.Gravity;
@@ -10,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+
+import androidx.appcompat.widget.AppCompatButton;
 
 public class MyButton extends AppCompatButton {
     private AppCompatButton mFloatingButton;

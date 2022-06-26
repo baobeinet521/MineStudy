@@ -2,5 +2,8 @@
 <resources>
     <declare-styleable name="CircleView">
         <attr name="circle_color" format="color"/>
+        <attr name="colorPrimary" format="color"></attr>
+        <attr name="colorPrimaryDark" format="color"></attr>
+        <attr name="colorAccent" format="color"></attr>
     </declare-styleable>
 </resources>
