@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PersistableBundle;
+import android.provider.MediaStore;
 import android.provider.Settings;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,9 @@ import com.zd.study.R;
 import com.zd.study.broadcast.TestBroadcastReceiverActivity;
 import com.zd.study.service.ServiceTestActivity;
 import com.zd.study.touchevent.TouchEventTestActivity;
+import com.zd.study.view.GuidePopupDialog;
+
+import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     public static String TAG = "TestActivity";
@@ -33,11 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mAIDLBtn;
     private Button mDrawBtn;
     private Button mTestLocalThreadBtn;
-    private Button mVedioTestBtn;
+    private Button mVideoTestBtn;
+    private Button mFrescoTestBtn;
 
     public boolean CanShowFloat = false;
 
     private final int REQUEST_OVERLAY = 5004;
+
+    private final int PICK_IMAGE_VIDEO = 5005;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +65,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mDrawBtn.setOnClickListener(this);
         mTestLocalThreadBtn = findViewById(R.id.local_thread_test_btn);
         mTestLocalThreadBtn.setOnClickListener(this);
-        mVedioTestBtn = findViewById(R.id.vedio_test_btn);
-        mVedioTestBtn.setOnClickListener(this);
-        mServiceTestBtn.invalidate();
+        mVideoTestBtn = findViewById(R.id.vedio_test_btn);
+        mVideoTestBtn.setOnClickListener(this);
+        mFrescoTestBtn = findViewById(R.id.fresco_test_btn);
+        mFrescoTestBtn.setOnClickListener(this);
     }
 
 
@@ -71,7 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.test_activity_btn:
 //                Intent intent = new Intent(this, HandlerActivity.class);
-                 intent = new Intent(this, LifeCycleActivity.class);
+//                 intent = new Intent(this, LifeCycleActivity.class);
 //                Intent intentTest = new Intent();
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //                intent.setClass(this, TestFlagActivity.class);
@@ -80,7 +89,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                System.out.println("_____分割线_______");
 //                mSingleInstanceD.testPrint();
 
+//                startActivity(intent);
+
+//                Intent i = new Intent(Intent.ACTION_PICK);
+////                i.addCategory(Intent.CATEGORY_OPENABLE);
+//                i.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+//                i.putExtra(Intent.EXTRA_INTENT, i);
+////                i.setType("image/*|audio/*");
+//                startActivityForResult(i, 0);
+
+                //打开的是文件夹
+//                Intent galleryIntent=new Intent(Intent.ACTION_GET_CONTENT);
+//                galleryIntent.addCategory(Intent.CATEGORY_OPENABLE);
+//                galleryIntent.setType("image/*");//图片
+//                startActivityForResult(galleryIntent,1);
+
+//                Intent intentToPickPic = new Intent(Intent.ACTION_PICK, null);
+//                // 如果限制上传到服务器的图片类型时可以直接写如："image/jpeg 、 image/png等的类型" 所有类型则写 "image/*"
+//                intentToPickPic.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/jpeg");
+//                startActivityForResult(intentToPickPic, PICK_IMAGE_VIDEO);
+
+//                GuidePopupDialog dialog = new GuidePopupDialog(this);
+//                dialog.show();
+
+
+                intent.setAction("android.intent.action.VIEW");
+                intent.setData(Uri.parse("cn.12306.comm://url"));
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
+
                 break;
             case R.id.touch_event_btn:
                 intent.setClass(this, TouchEventTestActivity.class);
@@ -114,6 +153,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.vedio_test_btn:
                 intent.setClass(this, VedioPlayerTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.fresco_test_btn:
+                intent.setClass(this, FrescoTestActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -229,6 +272,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     builder.show();
                 }
             }
+        }
+        if(requestCode == PICK_IMAGE_VIDEO){
+            Uri uri = data.getData();
+            //通过uri的方式返回，部分手机uri可能为空
+            if(uri != null){
+                String path = uri.getPath();
+                Log.e(TAG, "path  "  + path);
+                try {
+                    //通过uri获取到bitmap对象
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }else {
+                //部分手机可能直接存放在bundle中
+                Bundle bundleExtras = data.getExtras();
+                if(bundleExtras != null){
+                    Bitmap  bitmaps = bundleExtras.getParcelable("data");
+
+                }
+            }
+
         }
     }
 

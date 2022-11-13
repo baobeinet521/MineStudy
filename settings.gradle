@@ -8,3 +8,5 @@
 //}
 rootProject.name = "StudyApplication"
 include ':app'
+include ':JavaStudy'
+include ':JavaStudy:test'

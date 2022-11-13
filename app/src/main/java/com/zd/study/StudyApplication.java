@@ -4,6 +4,8 @@ import android.app.Application;
 import android.os.Process;
 import android.util.Log;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 public class StudyApplication extends Application {
 
     @Override
@@ -11,5 +13,6 @@ public class StudyApplication extends Application {
         super.onCreate();
         Log.e("zdTest","=======StudyApplication======onCreate====");
         Log.i("zdTest", "=======StudyApplication======onCreate=====Process==id =" + Process.myPid());
+        Fresco.initialize(this);
     }
 }

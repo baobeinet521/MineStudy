@@ -79,6 +79,13 @@
                 android:layout_marginTop="10dp"
                 android:text="测试vedio"
                 android:background="#6778001f"/>
+            <Button
+                android:id="@+id/fresco_test_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="测试图片"
+                android:background="#6778001f"/>
         </LinearLayout>
 
 
