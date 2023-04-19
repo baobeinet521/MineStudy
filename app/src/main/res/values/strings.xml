@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">我的学习</string>
     <string name="bind_service">绑定服务</string>
+
+    <string name="black_red"><Data><![CDATA[<font color="#000000">%1$s</font><font color="#ff0000">%2$s</font><font color="#000000">%3$s</font><font color="#ff0000">%4$s</font>]]></Data></string>
+
 </resources>

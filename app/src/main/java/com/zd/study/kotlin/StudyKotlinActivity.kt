@@ -3,6 +3,7 @@ package com.zd.study.kotlin
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.zd.study.R
+import io.reactivex.rxjava3.core.Flowable
 
 class StudyKotlinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,6 +25,8 @@ class StudyKotlinActivity : AppCompatActivity() {
 //            println(sumLambda(10, 20))
 //
 //        }
+
+        Flowable.just("Hello world").subscribe(System.out::println);
     }
 
     private fun sum(a:Int, b:Int):Int{

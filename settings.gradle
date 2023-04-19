@@ -10,3 +10,5 @@ rootProject.name = "StudyApplication"
 include ':app'
 include ':JavaStudy'
 include ':JavaStudy:test'
+include ':FrameworkModule'
+include ':FrameworkModule:framework'

@@ -13,6 +13,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/FrameworkModule" />
+            <option value="$PROJECT_DIR$/FrameworkModule/framework" />
             <option value="$PROJECT_DIR$/JavaStudy" />
             <option value="$PROJECT_DIR$/JavaStudy/test" />
             <option value="$PROJECT_DIR$/app" />

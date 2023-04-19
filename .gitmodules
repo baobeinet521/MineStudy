@@ -1,3 +1,6 @@
 [submodule "JavaStudy"]
 	path = JavaStudy
 	url = https://github.com/baobeinet521/JavaStudy.git
+[submodule "FrameworkModule"]
+	path = FrameworkModule
+	url = https://github.com/baobeinet521/FrameworkModule.git
