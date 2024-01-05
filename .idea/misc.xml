@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../.gradle/caches/transforms-2/files-2.1/c0901a79a856fec2e5764e305dab82f1/appcompat-1.6.1/res/layout/abc_alert_dialog_title_material.xml" value="0.16666666666666666" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/acticity_test_flag_layout.xml" value="0.264" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_book_manager_layout.xml" value="0.264" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_broadcastreceiver_layout.xml" value="0.2864583333333333" />
@@ -15,19 +16,34 @@
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_touch_event_layout.xml" value="0.2625" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/activity_viedo_layout.xml" value="0.271875" />
         <entry key="..\:/zd/zdgitworksapce/MineStudy/app/src/main/res/layout/draw_circle_layout.xml" value="0.13168516649848638" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.147" />
         <entry key="app/src/main/res/layout/acticity_test_flag_layout.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/activity_bj_riding_code_layout.xml" value="0.20208333333333334" />
         <entry key="app/src/main/res/layout/activity_book_manager_layout.xml" value="0.23596014492753623" />
         <entry key="app/src/main/res/layout/activity_broadcastreceiver_layout.xml" value="0.23596014492753623" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2734375" />
+        <entry key="app/src/main/res/layout/activity_kotlin_layout.xml" value="0.18125" />
+        <entry key="app/src/main/res/layout/activity_layout_handler.xml" value="0.2536231884057971" />
+        <entry key="app/src/main/res/layout/activity_lifecycle_layout.xml" value="0.2536231884057971" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2691390991210938" />
+        <entry key="app/src/main/res/layout/activity_test_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_test_layout.xml" value="0.1765625" />
+        <entry key="app/src/main/res/layout/activity_test_webview.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/activity_viedo_layout.xml" value="0.2536231884057971" />
+        <entry key="app/src/main/res/layout/animation_test_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/dialog_popup_guide_layout.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/fragment_test_1.xml" value="0.25729166666666664" />
+        <entry key="app/src/main/res/layout/fragment_test_2.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_test_3.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_test_4.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_test_5.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/fresco_test_activity.xml" value="0.24465891520182292" />
-        <entry key="app/src/main/res/layout/test.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/pop_view_layout.xml" value="0.21302083333333333" />
+        <entry key="app/src/main/res/layout/test.xml" value="0.20687231533769246" />
         <entry key="app/src/main/res/layout/web_pop_user_guide_layout.xml" value="0.2520833333333333" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="liberica-1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

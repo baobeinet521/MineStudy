@@ -7,6 +7,7 @@ import android.os.PersistableBundle;
 import android.os.Process;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

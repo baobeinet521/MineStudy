@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
 
 
     <!--非必要权限，用以获取当前设备的网络状态和WiFi状态，如：2G、3G、4G、WiFi，建议添加-->
@@ -19,6 +20,8 @@
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
     <!--非必要权限，用以获取当前移动网络连接的基站信息-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
 
 
@@ -52,6 +55,8 @@
             </intent-filter>
             <!--请添加这里的整个intent-filter区块，并确保其中只有一个data字段-->
         </activity>
+
+        <activity android:name=".activity.TestActivity"/>
 
         <activity android:name=".handler.HandlerActivity"/>
 
@@ -87,8 +92,18 @@
             android:exported="false">
 
         </activity>
-        <activity android:name="com.ruubypay.demo2.RidingCodeActivity"
-            android:exported="false"></activity>
+
+        <activity android:name=".amimation.AnimationTestActivity"
+            android:exported="false">
+
+        </activity>
+        <activity android:name=".activity.WebViewTestActivity"></activity>
+        <activity android:name=".activity.FragmentTestActivity"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"
+            ></activity>
 
     </application>
 

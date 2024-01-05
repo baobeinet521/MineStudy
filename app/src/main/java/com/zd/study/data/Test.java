@@ -1,7 +1,11 @@
-package com;
+package com.zd.study.data;
+
+import android.net.Uri;
 
 import com.zd.study.java.algorithm.TreeNode;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,12 +13,15 @@ import java.util.Queue;
 import java.util.Stack;
 
 public class Test {
-    public List<List<Integer>> test(TreeNode root){
+    public List<List<Integer>> test(TreeNode root) throws MalformedURLException {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> nodeList = new ArrayList<>();
         if(root == null){
             return result;
         }
+
+        String url = "";
+        Uri uri = Uri.parse(url);
         Stack<TreeNode> stack1 = new Stack<>();
         Stack<TreeNode> stack2 = new Stack<>();
         stack1.add(root);

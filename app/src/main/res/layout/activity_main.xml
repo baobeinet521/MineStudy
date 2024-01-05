@@ -6,90 +6,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
-    <ScrollView
+    
+    <TextView
+        android:id="@+id/test_text"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+    </TextView>
+
+    <ImageView
+        android:id="@+id/my_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        app:layout_constraintTop_toBottomOf="@+id/test_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="#773311">
+
+    </ImageView>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/anim"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toBottomOf="@+id/my_image_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:lottie_fileName="star.json"
+        app:lottie_autoPlay="true">
+
+    </com.airbnb.lottie.LottieAnimationView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/test_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/anim"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:cardBackgroundColor="@color/red"
+        app:cardCornerRadius="6dp">
+
+    </androidx.cardview.widget.CardView>
+    <Button
+        android:id="@+id/test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test_card_view"
+        android:text="测试"
         android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/test_activity_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="activity学习"
-                android:background="#6778001f"/>
-            <Button
-                android:id="@+id/touch_event_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="事件分发测试"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/service_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="service测试"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/broadcast_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="广播测试"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/aidl_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="AIDL测试"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/draw_view_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="自定义View"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/local_thread_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="测试ThreadLocal"
-                android:background="#6778001f"/>
-
-            <Button
-                android:id="@+id/vedio_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="测试vedio"
-                android:background="#6778001f"/>
-            <Button
-                android:id="@+id/fresco_test_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginTop="10dp"
-                android:text="测试图片"
-                android:background="#6778001f"/>
-        </LinearLayout>
+    </Button>
 
 
-    </ScrollView>
+    <Button
+        android:id="@+id/test1_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test_btn"
+        android:text="测试1"
+        android:orientation="vertical">
+    </Button>
+
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test1_btn"
+        android:text="测试1">
+    </TextView>
 
 
 
