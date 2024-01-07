@@ -45,6 +45,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.bumptech.glide.Glide;
 import com.zd.study.R;
 import com.zd.study.amimation.AnimationTestActivity;
+import com.zd.study.utils.DisplayUtil;
 import com.zd.study.view.PopupwindowUtils;
 
 import java.io.File;
@@ -87,15 +88,15 @@ public class MainActivity extends AppCompatActivity {
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, FragmentTestActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(MainActivity.this, WebViewTestActivity.class);
+                startActivity(intent);
 
 //                test();
 //                PopupwindowUtils.showPop(MainActivity.this);
 
 //                test();
 //                PopupwindowUtils.showPop(MainActivity.this);
-                testPoc();
+//                testPoc();
             }
         });
 
@@ -121,70 +122,15 @@ public class MainActivity extends AppCompatActivity {
 //                SpannableString spanColor = new SpannableString(test);
 //                dealOpenPermission(MainActivity.this, spanColor, mTestView);
 
-                boolean test = checkDeviceHasNavigationBar(MainActivity.this);
+                boolean test = DisplayUtil.checkDeviceHasNavigationBar(MainActivity.this);
                 Log.d("ceshi", " test   " + test);
-                int test1 = getNavigationBarRealHeight(MainActivity.this);
-                boolean isNavigationBarShow = isNavigationBarShow(MainActivity.this);
-                int getNavigationBarHeight = getNavigationBarHeight(MainActivity.this);
-                Log.d("ceshi", " test1   " + test1 + "   isNavigationBarShow   " + isNavigationBarShow + "    getNavigationBarHeight  " + getNavigationBarHeight);
+                int test1 = DisplayUtil.getNavigationBarRealHeight(MainActivity.this);
+                Log.d("ceshi", " test1   " + test1);
             }
         });
     }
 
 
-
-    public boolean isNavigationBarShow(Activity activity){
-        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN_MR1){
-            Display display = activity.getWindowManager().getDefaultDisplay();
-            Point size = new Point();
-            Point realSize = new Point();
-            display.getSize(size);
-            display.getRealSize(realSize);
-            return realSize.y != size.y;
-        }else {
-            return checkDeviceHasNavigationBar(activity);
-        }
-    }
-    public int getNavigationBarRealHeight(Activity activity) {
-        Window window = activity.getWindow();
-        View decorView = window.getDecorView();
-        Rect rect = new Rect();
-        decorView.getWindowVisibleDisplayFrame(rect);
-        DisplayMetrics outMetrics = new DisplayMetrics();
-        WindowManager windowManager = window.getWindowManager();
-        windowManager.getDefaultDisplay().getRealMetrics(outMetrics);
-        return outMetrics.heightPixels - rect.bottom;
-    }
-
-
-    public int getNavigationBarHeight(Activity activity){
-        int height = 0;
-        ContentResolver cr = activity.getContentResolver();
-        Resources resources = activity.getResources();
-        int resourceId = resources.getIdentifier("navigation_bar_height","dimen","android");
-        Log.d("ceshi", "getNavigationBarHeight  resourceId   " + resourceId);
-
-        if(resourceId > 0){
-            height = resources.getDimensionPixelSize(resourceId);
-        }
-        return height;
-    }
-
-    //获取是否存在NavigationBar
-    public static boolean checkDeviceHasNavigationBar(Context context) {
-
-        //通过判断设备是否有返回键、菜单键(不是虚拟键,是手机屏幕外的按键)来确定是否有navigation bar
-        boolean hasMenuKey = ViewConfiguration.get(context)
-                .hasPermanentMenuKey();
-        boolean hasBackKey = KeyCharacterMap
-                .deviceHasKey(KeyEvent.KEYCODE_BACK);
-
-        if (!hasMenuKey && !hasBackKey) {
-            // 做任何你需要做的,这个设备有一个导航栏
-            return true;
-        }
-        return false;
-    }
 
     public void testPoc(){
         try{
@@ -222,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
             JarFile jarFile = new JarFile(apkPath, false);
 
 
-
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             FileInputStream fis = new FileInputStream(apkFile);
             byte[] buffer = new byte[1024];
@@ -242,8 +187,6 @@ public class MainActivity extends AppCompatActivity {
         }catch ( Exception e){
             e.printStackTrace();
         }
-
-
 
     }
 
@@ -312,4 +255,10 @@ public class MainActivity extends AppCompatActivity {
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     }
+
+
+    // JSON字符串示例
+    String jsonStr = "[{\"name\":\"John\", \"age\":30}, {\"name\":\"Jane\", \"age\":25}]";
+
+
 }
