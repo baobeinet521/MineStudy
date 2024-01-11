@@ -19,6 +19,13 @@
             android:layout_height="wrap_content">
 
         </TextView>
+
+        <TextView
+            android:id="@+id/text_notice1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </TextView>
         <WebView
             android:id="@+id/web_view"
             android:layout_width="match_parent"

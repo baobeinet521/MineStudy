@@ -1,6 +1,12 @@
 package com.zd.study.activity;
 
 import android.os.Bundle;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.URLSpan;
 import android.util.Log;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -14,6 +20,7 @@ import com.zd.study.R;
 
 public class WebViewTestActivity extends AppCompatActivity {
     private TextView mNotice;
+    private TextView mNotice1;
     private WebView mWebView;
     private String a = "我行目前发行的薪金卡，分为标准版薪金卡、尊享薪金卡及分行联名薪金卡。尊享薪金卡与标准版薪金卡区别如下：<br><table border=\"1\"  cellspacing=\"0\" cellpadding=\"0\"><tr><th></th><th><center>尊享薪金卡</center></th><th><center>标准版薪金卡</center></th></tr><tr><td>手续费优惠</td><td>免年费、工本费、每月免前3笔同城及异地ATM跨行取现手续费</td><td>免年费、工本费、每月免前3笔仅同城ATM跨行取现手续费</td></tr><tr><td>卡样</td><td>卡面有“尊享”字样</td><td>分别有“年年有余”、“步步生花”、“源源不断”</td></tr></table>";
 
@@ -23,8 +30,26 @@ public class WebViewTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_webview);
         mNotice = findViewById(R.id.text_notice);
+        mNotice1 = findViewById(R.id.text_notice1);
         mWebView = findViewById(R.id.web_view);
-//        mNotice.setText(a);
+        String test ="<span style=\"font-weight: bold;\">1111四位数字</span><span style=\"font-weight: bold;\">22两位数字</span><span style=\"font-weight: bold;\">333三位数字</span>  ";
+        String[] list = test.split("<span style=\"font-weight: bold;\">");
+        String deal = "";
+        if(list != null && list.length > 0){
+            for(int i  = 0; i < list.length; i++){
+                list[i].replace("</span>","</b>");
+                deal += "<b>" + list[i];
+            }
+        }
+
+        mNotice.setText(Html.fromHtml(test));
+
+//        String testClick = "<a id=\"ebank\" onclick=\"www.baidu.com\">点击这里</a>";
+
+        String testClick = "<a href=\"http://baidu.com\">百度</a>";
+        Spanned spannedHtml=Html.fromHtml(testClick);
+        mNotice1.setText(getClickableHtml(spannedHtml));
+        mNotice1.setMovementMethod(LinkMovementMethod.getInstance());
         mNotice.post(new Runnable() {
             @Override
             public void run() {
@@ -47,4 +72,30 @@ public class WebViewTestActivity extends AppCompatActivity {
 //        mWebView.loadUrl("file:///android_asset/testszqb_has_params_type.html");
 
     }
+
+
+
+    private void setLinkClickable(final SpannableStringBuilder clickableHtmlBuilder,
+                                  final URLSpan urlSpan) {
+        int start = clickableHtmlBuilder.getSpanStart(urlSpan);
+        int end = clickableHtmlBuilder.getSpanEnd(urlSpan);
+        int flags = clickableHtmlBuilder.getSpanFlags(urlSpan);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            public void onClick(View view) {
+                //Do something with URL here.
+                // 如获取url地址，跳转到自己指定的页面
+            }
+        };
+        clickableHtmlBuilder.setSpan(clickableSpan, start, end, flags);
+    }
+
+    private CharSequence getClickableHtml(Spanned spannedHtml) {
+        SpannableStringBuilder clickableHtmlBuilder = new SpannableStringBuilder(spannedHtml);
+        URLSpan[] urls = clickableHtmlBuilder.getSpans(0, spannedHtml.length(), URLSpan.class);
+        for(final URLSpan span : urls) {
+            setLinkClickable(clickableHtmlBuilder, span);
+        }
+        return clickableHtmlBuilder;
+    }
+
 }
