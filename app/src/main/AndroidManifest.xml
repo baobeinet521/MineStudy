@@ -104,6 +104,9 @@
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"
             ></activity>
+        <activity android:name=".activity.WindowTestActivity"
+            android:configChanges="screenSize|smallestScreenSize|screenLayout"></activity>
+        <activity android:name=".activity.ScrollTextActivity"/>
 
     </application>
 

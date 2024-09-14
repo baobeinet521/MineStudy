@@ -47,4 +47,16 @@
         <item name="android:windowEnterAnimation">@anim/abc_popup_enter</item>
         <item name="android:windowExitAnimation">@anim/abc_popup_exit</item>
     </style>
+
+    <!-- 主题1 -->
+    <style name="Theme.MyApp.Theme1" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 定义样式和颜色 -->
+        <item name="android:windowBackground">#00000000</item>
+    </style>
+
+    <!-- 主题2 -->
+    <style name="Theme.MyApp.Theme2" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 定义样式和颜色 -->
+        <item name="android:windowBackground">#cc3640</item>
+    </style>
 </resources>

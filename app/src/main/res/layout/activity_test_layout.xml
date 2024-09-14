@@ -24,6 +24,17 @@
                 android:layout_height="50dp"
                 android:text="activity学习"
                 android:background="#6778001f"/>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:lineHeight="22dp"
+                tools:text="测试一下事件分发测试activity学习">
+
+            </TextView>
             <Button
                 android:id="@+id/touch_event_btn"
                 android:layout_width="wrap_content"

@@ -28,7 +28,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:orientation="horizontal"
-        android:visibility="gone">
+        android:visibility="visible">
         <Button
             android:id="@+id/fragment_test_btn1"
             android:layout_width="0dp"

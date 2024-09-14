@@ -7,19 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
     
-    <TextView
-        android:id="@+id/test_text"
+    <Button
+        android:id="@+id/tab_fragment_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent">
-    </TextView>
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="tabfragment测试">
+    </Button>
 
     <ImageView
         android:id="@+id/my_image_view"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        app:layout_constraintTop_toBottomOf="@+id/test_text"
+        app:layout_constraintTop_toBottomOf="@+id/tab_fragment_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         android:background="#773311">
 
@@ -54,7 +55,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/test_card_view"
-        android:text="测试"
+        android:text="测试今天是星期五"
+        android:textStyle="bold"
+        android:textSize="20dp"
         android:orientation="vertical">
     </Button>
 
@@ -67,8 +70,24 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/test_btn"
         android:text="测试1"
+        android:textStyle="bold"
+        android:textSize="24dp"
         android:orientation="vertical">
     </Button>
+
+
+    <TextView
+        android:id="@+id/test1_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/test1_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="welcome   123456    Wste"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:orientation="vertical"/>
 
 
     <TextView

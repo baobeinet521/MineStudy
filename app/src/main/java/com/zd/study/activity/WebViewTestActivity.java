@@ -12,6 +12,7 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class WebViewTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(WebViewTestActivity.this, "hahahhah",Toast.LENGTH_LONG).show();
         setContentView(R.layout.activity_test_webview);
         mNotice = findViewById(R.id.text_notice);
         mNotice1 = findViewById(R.id.text_notice1);
@@ -42,7 +44,9 @@ public class WebViewTestActivity extends AppCompatActivity {
             }
         }
 
-        mNotice.setText(Html.fromHtml(test));
+
+        String testa= " <b>onclick链接测试：</b>您可以<a id=\"ebank\" onclick=\"fd/FD0/NFD0115.html\">点击这里</a>进入交心存页面。<br><b>a href链接测试：</b>您也可以<a href=\"https://m.bankcomm.com/wap/shtml/wap/cn/15539/16778/16783/list.shtml?channelId=15539\">点击这里</a>查看并扫描二维码后关注。<br><b>font color标红测试：</b>交行<font color=\"#ff0000\">个人网银目前支持的操作系统</font>有win7、win8、win10、win11,以及苹果电脑的mac系统。<br><b>br标签测试：</b>交通银行。<br>注意。<br><b>p标签测试：</b><p>网上支付手机号优先取鉴权手机号(即短信动态密码手机号),若无则取核心手机号码。</p><br><b>br和p标签在中间测试：</b>查看各类沃德金及收藏金产品的销售价格。<br><p>“沃德金”销售采用预约销售模式。<br><b>div标签测试：</b>打印出来保存。</p><div>若您申请的惠民贷未结清。</div><br><b>nbsp空格标签测试:</b>当您使用交行二代usbkey&nbsp; &nbsp;智慧网盾<br><br><b>html标签测试：</b>阳光碧乐活1号起售金额为0.01元。<br><b>科大编辑器标红测试：</b><span style=\"color: rgb(194, 79, 74);\">温馨提示：</span>1.评测成功之后实时生效。<br><b>科大编辑器加粗测试：自动转入:</b>每个开放日<br><b>手动导入的加粗格式b标签测试：</b><b>1.转入限额:</b><br><b>table表格测试：</b>我行目前发行的薪金卡，分为标准版薪金卡、尊享薪金卡及分行联名薪金卡。尊享薪金卡与标准版薪金卡区别如下：<br><table border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-top: 1px solid #000; border-left: 1px solid #000\" border=\"0\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-top: 1px solid #000; border-left: 1px solid #000\"><tbody><tr><th style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\"></th><th style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\"><center>尊享薪金卡</center></th><th style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 2px solid #000; text-align: center; border-right: 1px solid #000; padding: 3px 5px\"><center>标准版薪金卡</center></th></tr><tr><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">手续费优惠</td><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">免年费、工本费、每月免前3笔同城及异地ATM跨行取现手续费</td><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">免年费、工本费、每月免前3笔仅同城ATM跨行取现手续费</td></tr><tr><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">卡样</td><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">卡面有“尊享”字样</td><td style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\" style=\"border-bottom: 1px solid #000; border-right: 1px solid #000; padding: 3px 5px\">分别有“年年有余”、“步步生花”、“源源不断”</td></tr></tbody></table>";
+        mNotice.setText(Html.fromHtml(testa));
 
 //        String testClick = "<a id=\"ebank\" onclick=\"www.baidu.com\">点击这里</a>";
 

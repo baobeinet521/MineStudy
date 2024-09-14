@@ -20,7 +20,6 @@ class AnimationTestActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.animation_test_layout)
         var lottieAnimationView = findViewById<LottieAnimationView>(R.id.animationView)
-
         var lottieAnimationView1 = findViewById<LottieAnimationView>(R.id.image_gif_view)
 //        lottieAnimationView.setAnimation("smallcar.json")
 //        var url = "http://172.20.10.6/lottie/488f373d-3bcb-4d5b-877d-b6ecdfa9e729.json"

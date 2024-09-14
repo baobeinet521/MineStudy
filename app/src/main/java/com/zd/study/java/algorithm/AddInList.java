@@ -2,6 +2,10 @@ package com.zd.study.java.algorithm;
 
 import com.zd.study.java.bean.ListNode;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class AddInList {
     /**
      * 假设链表中每一个节点的值都在 0 - 9 之间，那么链表整体就可以代表一个整数。
@@ -13,16 +17,45 @@ public class AddInList {
      */
 
     public static void main(String[] args) {
-        ListNode listNode3 = new ListNode(7,null);
+        ListNode listNode4 = new ListNode(3,null);
+        ListNode listNode3 = new ListNode(7,listNode4);
         ListNode listNode2 = new ListNode(3,listNode3);
         ListNode listNode1 = new ListNode(9,listNode2);
 
 
-        ListNode listNode22 = new ListNode(3,null);
-        ListNode listNode11 = new ListNode(6,listNode22);
-        ListNode temp = addInList(listNode1, listNode11);
-        System.out.println("     ");
+//        ListNode listNode22 = new ListNode(3,null);
+//        ListNode listNode11 = new ListNode(6,listNode22);
+//        ListNode temp = addInList(listNode1, listNode11);
+//        System.out.println("     ");
 
+        ListNode result = deleteDuplicates(listNode1);
+        System.out.println("    result   " + result);
+
+    }
+
+
+    public static ListNode deleteDuplicates(ListNode head) {
+        if(head == null){
+            return  null;
+        }
+        Map<String, ListNode> nodeMap = new HashMap<>();
+        ListNode temp = head;
+        while (temp != null && temp.next != null){
+            if(temp.val == temp.next.val){
+                temp.next = temp.next.next;
+            }else {
+                ListNode node = nodeMap.get(String.valueOf(temp.val));
+                if(node != null){
+                    temp.next = temp.next.next;
+                }else {
+                    nodeMap.put(String.valueOf(temp.next.val), temp.next);
+                }
+            }
+            if(temp.val != temp.next.val){
+                temp = temp.next;
+            }
+        }
+        return head;
     }
 
     public static ListNode addInList (ListNode head1, ListNode head2) {

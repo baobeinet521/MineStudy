@@ -1,18 +1,13 @@
 package com.zd.study.activity;
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.Point;
 import android.graphics.Rect;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -22,14 +17,7 @@ import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
-import android.view.KeyCharacterMap;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,56 +28,83 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.window.layout.FoldingFeature;
+import androidx.window.layout.WindowInfoTracker;
 
 import com.bumptech.glide.Glide;
 import com.zd.study.R;
-import com.zd.study.amimation.AnimationTestActivity;
 import com.zd.study.utils.DisplayUtil;
-import com.zd.study.view.PopupwindowUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.jar.JarEntry;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.jar.JarFile;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTestText;
+    private Button mTabFragmentBtn;
     private Button mButton;
     private CardView mCardView;
     private TextView mTestView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // 获取WindowInfoTracker实例
+        WindowInfoTracker windowInfoTracker = WindowInfoTracker.getOrCreate(this);
+        // 创建一个Executor来在其上执行异步任务
+        Executor executor = Executors.newSingleThreadExecutor();
+        windowInfoTracker.windowLayoutInfo(this);
+
+        // 使用windowInfoTracker和Executor来获取当前的WindowLayoutInfo
+
         setContentView(R.layout.activity_main);
-        mTestText = findViewById(R.id.test_text);
+        mTabFragmentBtn = findViewById(R.id.tab_fragment_btn);
         mCardView = findViewById(R.id.test_card_view);
         mCardView.setCardBackgroundColor(this.getResources().getColor(R.color.black));
         mButton = findViewById(R.id.test_btn);
         mTestView = findViewById(R.id.text_view);
-        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
-        mTestText.setText(Html.fromHtml(a));
-        ViewGroup.LayoutParams params = mButton.getLayoutParams();
-
+//        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
+//        mTestText.setText(Html.fromHtml(a));
         ImageView imageView = (ImageView) findViewById(R.id.my_image_view);
         String image = "https://img-blog.csdnimg.cn/20191215043500229.png";
         Glide.with(this).load(image).into(imageView);
         boolean endwith = image.endsWith("29.png");
         Log.d("Zdtest","endwith    "+ endwith);
+        mTabFragmentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FragmentTestActivity.class);
+                startActivity(intent);
+            }
+        });
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WebViewTestActivity.class);
+//                getScreenWith();
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
                 startActivity(intent);
+
+//                try {
+//                    Uri uri = Uri.parse("bocom://https://wap.95559.com.cn/mobs/main.html#public/index/index?flag=bocom_home_page_nph0001_update&&https%3A%2F%2Fmbank.95559.com.cn%3A8888%2Fmobs6%2Ftransfer%2FTRA%2FNTRAA01.html%3FtokenId%3Dxxx");
+//                    Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+////                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    startActivity(intent);
+//                }catch (Exception e){
+//                    e.printStackTrace();
+//                }
+                String testStr = "12345678901234567890";
+                String a = testStr.substring(0,12);
+                Log.d("ceshi",a);
+
+
 
 //                test();
 //                PopupwindowUtils.showPop(MainActivity.this);
@@ -126,11 +141,61 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("ceshi", " test   " + test);
                 int test1 = DisplayUtil.getNavigationBarRealHeight(MainActivity.this);
                 Log.d("ceshi", " test1   " + test1);
+
+
+                Intent intent = new Intent(MainActivity.this, WindowTestActivity.class);
+                startActivity(intent);
             }
         });
     }
 
+    private void handleFoldingFeature(FoldingFeature feature, Rect bounds) {
+        // 判断折叠屏是否已经折叠
+        if (feature.getState() == FoldingFeature.State.HALF_OPENED) {
+            // 处理折叠状态
+        } else if (feature.getState() == FoldingFeature.State.FLAT) {
+            // 处理展开状态
+        }
+    }
 
+    public void getScreenWith(){
+        DisplayMetrics dm = this.getResources().getDisplayMetrics();
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        Log.d("ceshi", " width   " +  getDisplayWidth(this) + " height   " + getDisplayHeight(this));
+    }
+
+
+    /**
+     * 获取屏幕宽度
+     *
+     * @param activity
+     * @return
+     */
+    public double getDisplayWidth(Activity activity) {
+        DisplayMetrics displayMetrics = getRealDisplayMetrics(activity);
+        return displayMetrics.widthPixels;
+    }
+
+    /**
+     * 获取屏幕高度
+     *
+     * @param activity
+     * @return
+     */
+    public double getDisplayHeight(Activity activity) {
+        DisplayMetrics displayMetrics = getRealDisplayMetrics(activity);
+        return displayMetrics.heightPixels;
+    }
+
+
+    private DisplayMetrics getRealDisplayMetrics(Activity activity) {
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        return displayMetrics;
+    }
+    
+    
 
     public void testPoc(){
         try{
@@ -254,11 +319,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+
     }
 
 
     // JSON字符串示例
     String jsonStr = "[{\"name\":\"John\", \"age\":30}, {\"name\":\"Jane\", \"age\":25}]";
-
 
 }

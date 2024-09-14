@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.graphics.Bitmap
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,20 +17,26 @@ import android.os.Environment
 import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.provider.Settings
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.BackgroundColorSpan
+import android.text.style.ImageSpan
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.zd.study.R
 import com.zd.study.broadcast.TestBroadcastReceiverActivity
 import com.zd.study.service.ServiceTestActivity
-import com.zd.study.touchevent.TouchEventTestActivity
 import java.io.File
 import java.io.IOException
+
 
 class TestActivity : AppCompatActivity(), View.OnClickListener {
     var TAG = "TestActivity"
@@ -42,6 +49,7 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
     private var mTestLocalThreadBtn: Button? = null
     private var mVideoTestBtn: Button? = null
     private var mFrescoTestBtn: Button? = null
+    private var textView: TextView? = null
 
     var CanShowFloat = false
 
@@ -73,6 +81,53 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         mVideoTestBtn?.setOnClickListener(this)
         mFrescoTestBtn = findViewById(R.id.fresco_test_btn)
         mFrescoTestBtn?.setOnClickListener(this)
+        textView = findViewById<TextView>(R.id.textView)
+        textView?.text = "测试一下事件分发activity学习"
+        var a = textView?.text
+        textView?.post {
+            var count  = textView?.layout?.lineCount ?: 0
+            if(count > 0){
+                var endOffset = textView?.layout?.getLineEnd(0)?:0
+                if(endOffset > 1){
+                    val lastChar = textView?.text?.get(endOffset - 1)
+                    var test = "ceshi"
+                }
+
+            }
+
+            var test = "ceshi"
+        }
+
+        test()
+    }
+
+
+    private fun test1(){
+
+    }
+    private fun test() {
+
+        val text = "这是 一个例子，其中一部分文字会有背景色。"
+        val spannableString = SpannableString(text)
+
+
+// 设置背景色的文字范围
+//        val startIndex = text.indexOf("部分")
+//        val endIndex = startIndex + "部分".length
+        spannableString.setSpan(
+            BackgroundColorSpan(Color.YELLOW),
+            0,
+            2,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+
+
+        val spannableString10 = SpannableString("这是 一个例子，其中一部分文字会有背景色。")
+        val imageSpan = ImageSpan(this, R.drawable.corner_8dp_bg_blue_line_blue1)
+        spannableString10.setSpan(imageSpan, 0, 2, Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+
+// 应用到TextView
+        textView?.text = spannableString10
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
@@ -158,37 +213,62 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
 //                String str = "/oss/";
 //                Log.e("ceshi", "=========   " + str);
                 schemeTest()
+
             R.id.touch_event_btn -> {
-                intent.setClass(this, TouchEventTestActivity::class.java)
-                startActivity(intent)
+//                intent.setClass(this, TouchEventTestActivity::class.java)
+//                startActivity(intent)
+                for (i in 0 until 4) {
+                    Log.e("test111", "i   " + i)
+
+                }
+
+
+                val layoutManager: LinearLayoutManager =
+                    object : LinearLayoutManager(this, HORIZONTAL, false) {
+                        override fun canScrollHorizontally(): Boolean {
+                            return false
+                        }
+                    }
+//                recyclerView.setLayoutManager(layoutManager)
             }
+
             R.id.service_test_btn -> {
                 intent.setClass(this, ServiceTestActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.broadcast_test_btn -> {
                 intent.setClass(this, TestBroadcastReceiverActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.aidl_test_btn -> {
                 intent.setClass(this, BookManagerActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.draw_view_test_btn -> if (CanShowFloat) {
                 intent.setClass(this, DrawViewActivity::class.java)
                 startActivity(intent)
             } else {
-                Toast.makeText(this@TestActivity, "未设置悬浮窗权限,请开启权限！", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this@TestActivity,
+                    "未设置悬浮窗权限,请开启权限！",
+                    Toast.LENGTH_SHORT
+                ).show()
                 RequestOverlayPermission(this)
             }
+
             R.id.local_thread_test_btn -> {
                 intent.setClass(this, VedioPlayerTestActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.vedio_test_btn -> {
                 intent.setClass(this, VedioPlayerTestActivity::class.java)
                 startActivity(intent)
             }
+
             R.id.fresco_test_btn -> {
                 intent.setClass(this, FrescoTestActivity::class.java)
                 startActivity(intent)
@@ -450,7 +530,14 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun getReadAndWritePermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this@TestActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this@TestActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(
+                    this@TestActivity,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this@TestActivity,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
                 //没有权限
                 ActivityCompat.requestPermissions(
                     this, arrayOf(
@@ -486,7 +573,14 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
      */
     private fun getReadPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if (ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(
+                    this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(
                         this,
                         Manifest.permission.RECEIVE_SMS
@@ -548,6 +642,7 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
                     i++
                 }
             }
+
             SEND_SMS -> Toast.makeText(this, "发送短信", Toast.LENGTH_LONG).show()
             else -> {}
         }
