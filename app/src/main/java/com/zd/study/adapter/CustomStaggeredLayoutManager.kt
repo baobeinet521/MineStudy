@@ -3,6 +3,8 @@ package com.zd.study.adapter
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import com.zd.study.utils.DisplayUtil
+
 
 class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
 
@@ -48,7 +50,8 @@ class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
         for (i in 0 until itemCount) {
             val view = recycler.getViewForPosition(i)
             addView(view)
-
+            val screenWidth = DisplayUtil.getScreenWidth(view.context)
+            Log.d("debug_rv", "onLayoutChildren: screenWidth = $screenWidth")
             measureChildWithMargins(view, 0, 0)
             val width = getDecoratedMeasuredWidth(view)
             val height = getDecoratedMeasuredHeight(view)
@@ -58,15 +61,21 @@ class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
             )
             if (leftColumn) {
 //                leftColumnViews.add(view)
-                layoutDecorated(view, 0, leftColumnHeight, width / 2, leftColumnHeight + height)
+                if (leftColumnHeight > 0){
+                    leftColumnHeight += DisplayUtil.dpToPx(view.context, 9f)
+                }
+                layoutDecorated(view, 0, leftColumnHeight, width, leftColumnHeight + height)
                 leftColumnHeight += height
             } else {
 //                rightColumnViews.add(view)
+                if (rightColumnHeight > 0){
+                    rightColumnHeight += DisplayUtil.dpToPx(view.context, 9f)
+                }
                 layoutDecorated(
                     view,
-                    width / 2,
+                    width + DisplayUtil.dpToPx(view.context, 9f),
                     rightColumnHeight,
-                    width,
+                    width * 2 + DisplayUtil.dpToPx(view.context, 5f),
                     rightColumnHeight + height
                 )
                 rightColumnHeight += height
