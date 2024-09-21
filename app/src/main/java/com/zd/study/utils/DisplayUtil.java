@@ -33,6 +33,11 @@ public class DisplayUtil {
         return point.y;
     }
 
+    public static int dpToPx(Context context, Float dp) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+    }
+
     /**
      * 屏幕宽度
      * @return the width of screen, in pixel

@@ -1,6 +1,7 @@
 package com.zd.study.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,12 +78,19 @@ class BizHomeRecyclerAdapter(context: Context?) : RecyclerView.Adapter<RecyclerV
                 var holer = holder as BizMoreExploreViewHolder
                 var bizMoreExploreAdapter = BizMoreExploreAdapter(mContext)
                 bizMoreExploreAdapter.setData(mBizDatas?.get(position)?.bannerData)
-                val staggeredGridLayoutManager =
-                    StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//                bizMoreExploreAdapter.
+//                val staggeredGridLayoutManager1 = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                val staggeredGridLayoutManager = CustomStaggeredLayoutManager()
                 holer.moreExploreRecycle.apply {
                     layoutManager = staggeredGridLayoutManager
                     adapter = bizMoreExploreAdapter
                 }
+                holer.moreExploreRecycle.post {
+                    val layoutParams = holer.moreExploreRecycle.layoutParams as ViewGroup.LayoutParams
+                    layoutParams.height = staggeredGridLayoutManager.getRealHeight()
+                    Log.d("debug_rv", "staggeredGridLayoutManager: height = ${staggeredGridLayoutManager.getRealHeight()}")
+                }
+
             }
 
             else -> {
