@@ -6,16 +6,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="10dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        android:background="#998833">
         <androidx.constraintlayout.utils.widget.ImageFilterView
             android:id="@+id/biz_image"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#ff8833"
+            android:scaleType="fitXY"
+            android:src="@drawable/img"/>
         <TextView
             android:id="@+id/biz_image_text"
             android:layout_width="match_parent"
@@ -25,7 +29,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:textSize="18dp"
             android:textStyle="bold"
-            tools:text="测试"/>
+            tools:text="测试"
+            android:background="#998833"/>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.constraintlayout.utils.widget.ImageFilterView
 import androidx.recyclerview.widget.RecyclerView
@@ -27,6 +28,7 @@ class BizHomeRecyclerAdapter(context: Context?) : RecyclerView.Adapter<RecyclerV
 
     open class BizMoreExploreViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var moreExploreRecycle: RecyclerView = itemView.findViewById(R.id.scroll_recycle)
+        var deleteBtn: Button = itemView.findViewById(R.id.delete_btn)
     }
 
     open class BannerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -86,11 +88,21 @@ class BizHomeRecyclerAdapter(context: Context?) : RecyclerView.Adapter<RecyclerV
                     adapter = bizMoreExploreAdapter
                 }
                 holer.moreExploreRecycle.post {
-                    val layoutParams = holer.moreExploreRecycle.layoutParams as ViewGroup.LayoutParams
+                    val layoutParams =
+                        holer.moreExploreRecycle.layoutParams as ViewGroup.LayoutParams
                     layoutParams.height = staggeredGridLayoutManager.getRealHeight()
-                    Log.d("debug_rv", "staggeredGridLayoutManager: height = ${staggeredGridLayoutManager.getRealHeight()}")
+                    Log.d(
+                        "debug_rv",
+                        "staggeredGridLayoutManager: height = ${staggeredGridLayoutManager.getRealHeight()}"
+                    )
                 }
-
+                holer.deleteBtn.setOnClickListener {
+                    if (mBizDatas?.get(position)?.bannerData != null && mBizDatas?.get(position)?.bannerData?.size ?: 0 > 1){
+                        mBizDatas?.get(position)?.bannerData?.removeAt(1)
+//                        bizMoreExploreAdapter.setData(mBizDatas?.get(position)?.bannerData)
+                        bizMoreExploreAdapter.notifyItemRemoved(1)
+                    }
+                }
             }
 
             else -> {
