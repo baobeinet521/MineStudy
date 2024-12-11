@@ -1,13 +1,17 @@
 package com.zd.study.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getResources().getConfiguration().locale.getLanguage();
         // 获取WindowInfoTracker实例
         WindowInfoTracker windowInfoTracker = WindowInfoTracker.getOrCreate(this);
         // 创建一个Executor来在其上执行异步任务
@@ -131,19 +135,25 @@ public class MainActivity extends AppCompatActivity {
 //
 //                Log.d("test", year + "" + month + "" + dayOfMonth);
 
-                int vi = View.GONE;
-
 //                String test = String.format(MainActivity.this.getString(R.string.test), "nihaoaa");
 //                SpannableString spanColor = new SpannableString(test);
 //                dealOpenPermission(MainActivity.this, spanColor, mTestView);
 
-                boolean test = DisplayUtil.checkDeviceHasNavigationBar(MainActivity.this);
-                Log.d("ceshi", " test   " + test);
-                int test1 = DisplayUtil.getNavigationBarRealHeight(MainActivity.this);
-                Log.d("ceshi", " test1   " + test1);
+//                boolean test = DisplayUtil.checkDeviceHasNavigationBar(MainActivity.this);
+//                Log.d("ceshi", " test   " + test);
+//                int test1 = DisplayUtil.getNavigationBarRealHeight(MainActivity.this);
+//                Log.d("ceshi", " test1   " + test1);
+//
+//
+//                Intent intent = new Intent(MainActivity.this, WindowTestActivity.class);
+//                startActivity(intent);
 
-
-                Intent intent = new Intent(MainActivity.this, WindowTestActivity.class);
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.addCategory("android.intent.category.BROWSABLE");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setData(Uri.parse("bocom://https://wap.95559.com.cn/mobs/main.html#public/index/index?flag=bocom_home_page_nph0001_update&&https%3A%2F%2Fmbank.95559.com.cn%3A8888%2Fmobs6"));
                 startActivity(intent);
             }
         });

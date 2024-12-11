@@ -107,6 +107,17 @@ dependencies {
     implementation files('libs/gmhelper-BoComBank.jar')
     implementation files('libs/testGM.jar')
 
+
+
+    implementation(name: 'IDOCR.PubSdk.Android.StdUI.NFC.Release-10.6.2', ext: 'aar')
+
+    implementation files('libs/eid-mobile-sdk-v3.1.15.5.jar')
+    /**
+     *     二代证电子照片解码库
+     */
+//    implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
+    implementation files('libs/eid-travel-bc-v1.0.3.jar')
+
 }
 repositories {
     mavenCentral()

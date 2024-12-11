@@ -60,7 +60,7 @@ class BizMoreExploreAdapter(context: Context?) : RecyclerView.Adapter<RecyclerVi
                 layoutParams.height = DisplayUtil.dpToPx(mContext, 247f)
             }
             if (position == 3) {
-                layoutParams.height = DisplayUtil.dpToPx(mContext, 200f)
+                layoutParams.height = DisplayUtil.dpToPx(mContext, 180f)
             }
             if (position == 4) {
                 layoutParams.height = DisplayUtil.dpToPx(mContext, 200f)
@@ -72,7 +72,7 @@ class BizMoreExploreAdapter(context: Context?) : RecyclerView.Adapter<RecyclerVi
             (holder as ViewpageViewHolder).layout.layoutParams = layoutParams
         }
 
-        holder.title.text = bannerData?.get(position)?.text ?: "轮播数据的位置$position"
+        holder.title.text = "列表中的第$position 位"
 
         val adapter = BizViewpageAutoAdapter(mContext)
         adapter.setData(bannerData?.get(position)?.scrollData)

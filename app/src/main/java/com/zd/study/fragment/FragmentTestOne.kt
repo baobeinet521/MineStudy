@@ -57,12 +57,12 @@ class FragmentTestOne : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         }
         var moreExplorData = BizData()
         moreExplorData.type = 2
-        moreExplorData.text = "探索更多瀑布流"
+        moreExplorData.text = "瀑布流"
 
         var scrollBizDatas: MutableList<BizFlowImages> = mutableListOf()
-        for (i in  0 until 6){
+        for (i in  0 until 5){
             var data = BizFlowImages()
-            data.text = "探索更多数据$i"
+            data.text = "数据$i"
 
             var bannerData: MutableList<String> = mutableListOf()
             for (i in  0 until 5){
@@ -79,41 +79,6 @@ class FragmentTestOne : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             data.text = "单纯图片$i"
             bizDatas.add(data)
         }
-
-        var moreExplorData1 = BizData()
-        moreExplorData1.type = 2
-        moreExplorData1.text = "探索更多瀑布流2"
-        for (i in  0 until 3){
-            var data = BizFlowImages()
-            data.text = "探索更多数据$i"
-
-            var bannerData: MutableList<String> = mutableListOf()
-            for (i in  0 until 5){
-                bannerData.add("轮播数据位置$i")
-            }
-            data.scrollData = bannerData
-            scrollBizDatas.add(data)
-            moreExplorData1.bannerData = scrollBizDatas
-        }
-        bizDatas.add(moreExplorData1)
-
-
-        var moreExplorData2 = BizData()
-        moreExplorData2.type = 2
-        moreExplorData2.text = "探索更多瀑布流3"
-        for (i in  0 until 4){
-            var data = BizFlowImages()
-            data.text = "探索更多数据$i"
-
-            var bannerData: MutableList<String> = mutableListOf()
-            for (i in  0 until 5){
-                bannerData.add("轮播数据位置$i")
-            }
-            data.scrollData = bannerData
-            scrollBizDatas.add(data)
-            moreExplorData2.bannerData = scrollBizDatas
-        }
-        bizDatas.add(moreExplorData2)
         Log.i("test", "数据的长度是  " + bizDatas.size)
     }
 

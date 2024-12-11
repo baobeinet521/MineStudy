@@ -13,13 +13,6 @@ class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
     private var leftColumnHeight = 0
     private var rightColumnHeight = 0
 
-    fun getLeftHeight(): Int {
-        return leftColumnHeight
-    }
-
-    fun getRightHeight(): Int {
-        return rightColumnHeight
-    }
     fun getRealHeight(): Int{
         return Math.max(leftColumnHeight, rightColumnHeight)
     }
@@ -51,23 +44,21 @@ class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
             val view = recycler.getViewForPosition(i)
             addView(view)
             val screenWidth = DisplayUtil.getScreenWidth(view.context)
-            Log.d("debug_rv", "onLayoutChildren: screenWidth = $screenWidth")
+            Log.d("CustomStaggeredLayoutManager", "onLayoutChildren: screenWidth = $screenWidth")
             measureChildWithMargins(view, 0, 0)
             val width = getDecoratedMeasuredWidth(view)
             val height = getDecoratedMeasuredHeight(view)
             Log.d(
-                "debug_rv",
+                "CustomStaggeredLayoutManager",
                 "onLayoutChildren: width = $width, height = $height, leftColumnHeight = $leftColumnHeight, rightColumnHeight = $rightColumnHeight"
             )
             if (leftColumn) {
-//                leftColumnViews.add(view)
                 if (leftColumnHeight > 0){
                     leftColumnHeight += DisplayUtil.dpToPx(view.context, 9f)
                 }
                 layoutDecorated(view, 0, leftColumnHeight, width, leftColumnHeight + height)
                 leftColumnHeight += height
             } else {
-//                rightColumnViews.add(view)
                 if (rightColumnHeight > 0){
                     rightColumnHeight += DisplayUtil.dpToPx(view.context, 9f)
                 }
@@ -93,12 +84,15 @@ class CustomStaggeredLayoutManager : RecyclerView.LayoutManager() {
         return false
     }
 
+    override fun isAutoMeasureEnabled(): Boolean {
+        return true
+    }
     override fun scrollVerticallyBy(
         dy: Int,
         recycler: RecyclerView.Recycler?,
         state: RecyclerView.State?
     ): Int {
-        Log.d("debug_rv", "scrollVerticallyBy =====")
+        Log.d("CustomStaggeredLayoutManager", "scrollVerticallyBy =====")
         val travel = if (dy + leftColumnHeight > height) height - leftColumnHeight else dy
         offsetChildrenVertical(-travel)
         return travel

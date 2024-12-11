@@ -81,7 +81,7 @@ class BizHomeRecyclerAdapter(context: Context?) : RecyclerView.Adapter<RecyclerV
                 var bizMoreExploreAdapter = BizMoreExploreAdapter(mContext)
                 bizMoreExploreAdapter.setData(mBizDatas?.get(position)?.bannerData)
 //                bizMoreExploreAdapter.
-//                val staggeredGridLayoutManager1 = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                val staggeredGridLayoutManager1 = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 val staggeredGridLayoutManager = CustomStaggeredLayoutManager()
                 holer.moreExploreRecycle.apply {
                     layoutManager = staggeredGridLayoutManager
