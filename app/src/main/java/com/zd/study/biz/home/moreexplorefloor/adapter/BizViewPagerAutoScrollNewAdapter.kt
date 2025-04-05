@@ -1,4 +1,4 @@
-package com.zd.study.adapter
+package com.zd.study.biz.home.moreexplorefloor.adapter
 
 import android.content.Context
 import android.os.Handler
@@ -11,14 +11,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.zd.study.R
+import com.zd.study.adapter.BizViewpageAdapter
 import com.zd.study.autoscrollview.AutoScrollViewPager
-import com.zd.study.data.BizFlowImages
+import com.zd.study.biz.home.moreexplorefloor.model.BizCardData
 import com.zd.study.utils.DisplayUtil
 
 
-class BizMoreExploreAdapter(context: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class BizViewPagerAutoScrollNewAdapter(context: Context?) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val mContext: Context? = context
-    var bannerData: MutableList<BizFlowImages>? = null
+    var bannerData: MutableList<BizCardData>? = null
 
     // 每个页面之间的延迟时间（毫秒）
     private val DELAY_TIME_MS: Long = 3000
@@ -30,17 +31,17 @@ class BizMoreExploreAdapter(context: Context?) : RecyclerView.Adapter<RecyclerVi
         var layout: FrameLayout = itemView.findViewById(R.id.more_explore_item_layout)
         var title: TextView = itemView.findViewById(R.id.biz_ViewPager_title)
 //        var viewPager: ViewPager2 = itemView.findViewById(R.id.biz_ViewPager)
-        var viewPager1: AutoScrollViewPager<BizViewpageAutoAdapter> = itemView.findViewById(R.id.biz_ViewPager1)
+        var viewPager1: AutoScrollViewPager<BizViewpagerAutoScrollAdapter> = itemView.findViewById(R.id.biz_ViewPager1)
         var indicatorLayout: TabLayout = itemView.findViewById(R.id.indicator_layout)
     }
 
-    fun setData(data: MutableList<BizFlowImages>?) {
+    fun setData(data: MutableList<BizCardData>?) {
         bannerData = data
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewpageViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.biz_viewpage_item_layout, parent, false)
+        val view = inflater.inflate(R.layout.biz_auto_scroll_layout, parent, false)
 //        BizViewpageItemLayoutBinding.inflate(inflater,  parent, false)
         return ViewpageViewHolder(view)
     }
@@ -74,12 +75,12 @@ class BizMoreExploreAdapter(context: Context?) : RecyclerView.Adapter<RecyclerVi
 
         holder.title.text = "列表中的第$position 位"
 
-        val adapter = BizViewpageAutoAdapter(mContext)
-        adapter.setData(bannerData?.get(position)?.scrollData)
+       /* val adapter = BizViewpageAutoAdapter(mContext)
+        adapter.setData(bannerData?.get(position)?.dataList)
         holder.viewPager1.setAdapter(adapter)
         holder.viewPager1.isAutoPlay = false
         holder.viewPager1.isNestedScrollingEnabled = false
-        holder.viewPager1.setDotGravity(AutoScrollViewPager.CENTER)
+        holder.viewPager1.setDotGravity(AutoScrollViewPager.CENTER)*/
 
 
 

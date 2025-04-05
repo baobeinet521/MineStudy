@@ -10,7 +10,11 @@ import androidx.fragment.app.Fragment;
 
 import com.zd.study.R;
 
-public class FragmentTestFive extends Fragment {
+/**
+ * 我的
+ * @author zd
+ */
+public class MineFragment extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,7 +24,7 @@ public class FragmentTestFive extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test_5, null);
+        View view = inflater.inflate(R.layout.fragment_mine_layout, null);
         return view;
     }
 }

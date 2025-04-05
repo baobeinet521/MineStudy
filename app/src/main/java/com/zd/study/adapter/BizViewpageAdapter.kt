@@ -42,7 +42,7 @@ class BizViewpageAdapter(context: Context?) : RecyclerView.Adapter<RecyclerView.
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewpageViewHolder {
         val inflater: LayoutInflater = LayoutInflater.from(parent.context)
-        val view = inflater.inflate(R.layout.biz_image_item_layout, parent, false)
+        val view = inflater.inflate(R.layout.biz_viewpager_image_item_layout, parent, false)
         return ViewpageViewHolder(view)
     }
 

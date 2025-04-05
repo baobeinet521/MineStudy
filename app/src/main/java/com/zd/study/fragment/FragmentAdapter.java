@@ -9,31 +9,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentAdapter extends FragmentStateAdapter {
-    private FragmentTestOne mFragmentTestOne;
+    private HomeFragment mHomeFragment;
     private FragmentTestTwo mFragmentTestTwo;
     private FragmentTestThree mFragmentTestThree;
     private FragmentTestFour mFragmentTestFour;
-    private FragmentTestFive mFragmentTestFive;
+    private MineFragment mMineFragment;
 
     List<Fragment> list = new ArrayList<>();
 
     public FragmentAdapter(@NonNull FragmentActivity fragmentActivity) {
         super(fragmentActivity);
-        mFragmentTestOne = new FragmentTestOne();
+        mHomeFragment = new HomeFragment();
         mFragmentTestTwo = new FragmentTestTwo();
         mFragmentTestThree = new FragmentTestThree();
         mFragmentTestFour = new FragmentTestFour();
         mFragmentTestFour = new FragmentTestFour();
-        mFragmentTestFive = new FragmentTestFive();
+        mMineFragment = new MineFragment();
         setList();
     }
 
     public void setList(){
-        list.add(mFragmentTestOne);
+        list.add(mHomeFragment);
         list.add(mFragmentTestTwo);
         list.add(mFragmentTestThree);
         list.add(mFragmentTestFour);
-        list.add(mFragmentTestFive);
+        list.add(mMineFragment);
     }
 
     @NonNull

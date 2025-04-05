@@ -107,6 +107,7 @@
         <activity android:name=".activity.WindowTestActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout"></activity>
         <activity android:name=".activity.ScrollTextActivity"/>
+        <activity android:name=".activity.GlideStudyActivity"/>
 
     </application>
 

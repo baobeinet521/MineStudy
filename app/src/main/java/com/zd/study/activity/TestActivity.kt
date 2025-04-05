@@ -36,6 +36,7 @@ import com.zd.study.broadcast.TestBroadcastReceiverActivity
 import com.zd.study.service.ServiceTestActivity
 import java.io.File
 import java.io.IOException
+import kotlin.random.Random
 
 
 class TestActivity : AppCompatActivity(), View.OnClickListener {
@@ -270,12 +271,92 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.fresco_test_btn -> {
-                intent.setClass(this, FrescoTestActivity::class.java)
-                startActivity(intent)
+//                intent.setClass(this, FrescoTestActivity::class.java)
+//                startActivity(intent)
+                testLet()
             }
         }
     }
 
+
+    fun testLet() {
+//sampleStart
+//        val numbers = listOf("one", "two", "three", "four")
+//        val modifiedFirstItem = numbers.first().let { firstItem ->
+//            println("The first item of the list is '$firstItem'")
+//            if (firstItem.length >= 5) firstItem else "!" + firstItem + "!"
+//        }.uppercase()
+//        println("First item after modifications: '$modifiedFirstItem'")
+//sampleEnd
+
+//        val numbers = mutableListOf("one", "two", "three")
+//        with(numbers) {
+//            println("'with' is called with argument $this")
+//            println("It contains $size elements")
+//        }
+
+
+//        val numbers = mutableListOf("one", "two", "three")
+//        val firstAndLast = with(numbers) {
+//            "The first element is ${first()}," +
+//                    " the last element is ${last()}"
+//        }
+//        println(firstAndLast)
+
+
+//        val service = MultiportService("https://example.kotlinlang.org", 80)
+//
+//        val result = service.run {
+//            port = 8080
+//            query(prepareRequest() + " to port $port")
+//        }
+//
+//        // 同样的代码如果用 let() 函数来写:
+//        val letResult = service.let {
+//            it.port = 8080
+//            it.query(it.prepareRequest() + " to port ${it.port}")
+//        }
+////sampleEnd
+//        println(result)
+//        println(letResult)
+//        val hexNumberRegex = run {
+//            val digits = "0-9"
+//            val hexDigits = "A-Fa-f"
+//            val sign = "+-"
+//
+//            Regex("[$sign]?[$digits$hexDigits]+")
+//        }
+//
+//        for (match in hexNumberRegex.findAll("+123 -FFFF !%*& 88 XYZ")) {
+//            println(match.value)
+//        }
+
+//        val adam = Person("Adam").apply {
+//            age = 32
+//            city = "London"
+//        }
+//        println(adam)
+
+//        val numbers = mutableListOf("one", "two", "three")
+//        numbers
+//            .also { println("The list elements before adding new one: $it") }
+//            .add("four")
+
+        val number = Random.nextInt(100)
+
+        val evenOrNull = number.takeIf { it % 2 == 0 }
+        val oddOrNull = number.takeUnless { it % 2 == 0 }
+        println("even: $evenOrNull, odd: $oddOrNull")
+
+    }
+
+
+    class MultiportService(var url: String, var port: Int) {
+        fun prepareRequest(): String = "Default request"
+        fun query(request: String): String = "Result for query '$request'"
+    }
+
+    data class Person(var name: String, var age: Int = 0, var city: String = "")
 
     fun schemeTest() {
         val url = "com.test.demo://"

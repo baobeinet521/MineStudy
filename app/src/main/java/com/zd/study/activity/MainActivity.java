@@ -51,6 +51,9 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.jar.JarFile;
 
+/**
+ * @author zd
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button mTabFragmentBtn;
@@ -66,7 +69,8 @@ public class MainActivity extends AppCompatActivity {
         // 创建一个Executor来在其上执行异步任务
         Executor executor = Executors.newSingleThreadExecutor();
         windowInfoTracker.windowLayoutInfo(this);
-
+        //        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
+//        mTestText.setText(Html.fromHtml(a));
         // 使用windowInfoTracker和Executor来获取当前的WindowLayoutInfo
 
         setContentView(R.layout.activity_main);
@@ -77,11 +81,14 @@ public class MainActivity extends AppCompatActivity {
         mTestView = findViewById(R.id.text_view);
 //        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
 //        mTestText.setText(Html.fromHtml(a));
-        ImageView imageView = (ImageView) findViewById(R.id.my_image_view);
-        String image = "https://img-blog.csdnimg.cn/20191215043500229.png";
-        Glide.with(this).load(image).into(imageView);
-        boolean endwith = image.endsWith("29.png");
-        Log.d("Zdtest","endwith    "+ endwith);
+        Button glideTestBtn = findViewById(R.id.glide_test_btn);
+        glideTestBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, GlideStudyActivity.class);
+                startActivity(intent);
+            }
+        });
         mTabFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                getScreenWith();
-                Intent intent = new Intent(MainActivity.this, TestActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(MainActivity.this, TestActivity.class);
+//                startActivity(intent);
 
 //                try {
 //                    Uri uri = Uri.parse("bocom://https://wap.95559.com.cn/mobs/main.html#public/index/index?flag=bocom_home_page_nph0001_update&&https%3A%2F%2Fmbank.95559.com.cn%3A8888%2Fmobs6%2Ftransfer%2FTRA%2FNTRAA01.html%3FtokenId%3Dxxx");
@@ -104,9 +111,9 @@ public class MainActivity extends AppCompatActivity {
 //                }catch (Exception e){
 //                    e.printStackTrace();
 //                }
-                String testStr = "12345678901234567890";
-                String a = testStr.substring(0,12);
-                Log.d("ceshi",a);
+//                String testStr = "12345678901234567890";
+//                String a = testStr.substring(0,12);
+//                Log.d("ceshi",a);
 
 
 
@@ -116,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
 //                test();
 //                PopupwindowUtils.showPop(MainActivity.this);
 //                testPoc();
+
+                "aa".equals(null);
             }
         });
 

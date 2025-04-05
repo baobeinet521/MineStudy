@@ -35,8 +35,8 @@ public class AddInList {
 
 
     public static ListNode deleteDuplicates(ListNode head) {
-        if(head == null){
-            return  null;
+        if (head == null) {
+            return null;
         }
         Map<String, ListNode> nodeMap = new HashMap<>();
         ListNode temp = head;
