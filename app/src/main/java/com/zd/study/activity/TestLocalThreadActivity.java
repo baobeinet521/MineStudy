@@ -95,21 +95,14 @@ public class TestLocalThreadActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
-            case R.id.test_main_thread_btn:
-                testMainThread();
-                break;
-            case R.id.test_thread_btn:
-                testThread();
-                break;
-            case R.id.test_thread1_btn:
-                testThread1();
-                break;
-            case R.id.test_thread2_btn:
-                testThread2();
-                break;
-            default:
-                break;
+        if(id == R.id.test_main_thread_btn){
+            testMainThread();
+        } else if (id == R.id.test_thread_btn) {
+            testThread();
+        } else if (id == R.id.test_thread1_btn) {
+            testThread1();
+        } else if (id == R.id.test_thread2_btn) {
+            testThread2();
         }
     }
     @Override

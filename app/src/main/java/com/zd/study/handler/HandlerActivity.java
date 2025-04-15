@@ -128,36 +128,24 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         int id = v.getId();
         Message msg = Message.obtain();
-        switch (id){
-            case R.id.btn_1:
+            if (id == R.id.btn_1) {
                 msg.what = 1;
                 msg.obj = "HandlerThread 刷新UI：你是猪猪";
                 mWorkHandler.sendMessage(msg);
                 Looper mLooper = workThread.getLooper();
                 Log.d(TAG, "88888888888888workThread.getLooper()   " + mLooper + "   MainLooper  " + getMainLooper()
                         + "  mHandlerThread.getLooper  " + mHandlerThread.getLooper());
-                break;
-            case  R.id.btn_2:
-
-
+            } else if (id == R.id.btn_2){
                 msg.what =1;
                 msg.obj = "普通的Threads刷新UI:我要吃肉肉";
                 workHandler2.sendMessage(msg);
-
-                break;
-
-            case  R.id.btn_3:
-
+            } else if (id == R.id.btn_3) {
                 msg.what =1;
                 msg.obj = "普通的Threads刷新UI:我要去旅行";
                 workThread.mHandler.sendMessage(msg);
+            } else if (id == R.id.btn_4) {
 
-                break;
-
-            case R.id.btn_4:
-
-                break;
-        }
+            }
 
     }
 }

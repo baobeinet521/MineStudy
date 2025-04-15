@@ -244,8 +244,8 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.aidl_test_btn -> {
-                intent.setClass(this, BookManagerActivity::class.java)
-                startActivity(intent)
+//                intent.setClass(this, BookManagerActivity::class.java)
+//                startActivity(intent)
             }
 
             R.id.draw_view_test_btn -> if (CanShowFloat) {
