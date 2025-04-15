@@ -1,11 +1,8 @@
 package com.zd.study.java.bean;
 
-public class Student {
+public class Student<T> {
     private int age;
-
-    public Student(int a) {
-        this.age = a;
-    }
+    private T score;
 
     public void setAge(int newAge) {
         this.age = newAge;
@@ -13,5 +10,13 @@ public class Student {
 
     public int getAge() {
         return this.age;
+    }
+
+    public T getScore() {
+        return score;
+    }
+
+    public void setScore(T score) {
+        this.score = score;
     }
 }
