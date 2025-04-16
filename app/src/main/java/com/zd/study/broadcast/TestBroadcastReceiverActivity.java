@@ -72,30 +72,22 @@ public class TestBroadcastReceiverActivity extends AppCompatActivity implements 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id){
-            case R.id.sys_broadcast_receiver:
-                break;
-            case R.id.order_broadcast_receiver:
-                Intent intent = new Intent();
-                intent.setAction("order_broadcast_receiver");
-                intent.putExtra("test1","这是有序广播原始数据====");
-                sendOrderedBroadcast(intent,null);
-                break;
+        if(id == R.id.sys_broadcast_receiver){
 
-            case R.id.no_order_broadcast_receiver:
-                break;
+        } else if (id == R.id.order_broadcast_receiver) {
+            Intent intent = new Intent();
+            intent.setAction("order_broadcast_receiver");
+            intent.putExtra("test1","这是有序广播原始数据====");
+            sendOrderedBroadcast(intent,null);
+        }else if (id == R.id.no_order_broadcast_receiver){
 
-            case R.id.stick_broadcast_receiver:
-                break;
-            case R.id.local_broadcast_receiver:
-                Intent localIntent = new Intent();
-                localIntent.setAction("local_broadcast_receiver");
-                localIntent.putExtra("test_local","这是本地广播原始数据====");
-                LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
+        }else if (id == R.id.stick_broadcast_receiver){
 
-                break;
-
-
+        }else if (id == R.id.local_broadcast_receiver){
+            Intent localIntent = new Intent();
+            localIntent.setAction("local_broadcast_receiver");
+            localIntent.putExtra("test_local","这是本地广播原始数据====");
+            LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
         }
 
     }

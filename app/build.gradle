@@ -102,12 +102,20 @@ dependencies {
     implementation "com.airbnb.android:lottie:6.4.0"
     implementation 'androidx.window:window:1.0.0'
 
-    /*implementation files('libs/bcpkix-jdk15on-1.64.jar')
+   /* implementation files('libs/bcpkix-jdk15on-1.64.jar')
     implementation files('libs/bcprov-jdk15on-1.64.jar')
     implementation files('libs/commons-codec-1.9.jar')
     implementation files('libs/gmhelper-BoComBank.jar')
-    implementation files('libs/testGM.jar')
-*/
+    implementation files('libs/testGM.jar')*/
+
+
+    implementation files('libs/eid-mobile-sdk-v3.1.15.5.jar')
+    /**
+     *     二代证电子照片解码库
+     */
+//    implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
+    implementation files('libs/eid-travel-bc-v1.0.3.jar')
+
 }
 repositories {
     mavenCentral()

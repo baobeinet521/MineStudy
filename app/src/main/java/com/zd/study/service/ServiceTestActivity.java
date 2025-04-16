@@ -73,43 +73,32 @@ public class ServiceTestActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View v) {
         Intent intent = new Intent(this, ServiceTest.class);
         int id = v.getId();
-        switch (id){
-            case R.id.test_start_service_btn:
+        if (id == R.id.test_start_service_btn) {
 //                Log.d(TAG, " onClick start service -----");
-                startService(intent);
-                break;
-            case R.id.test_stop_service_btn:
-//                Log.d(TAG, " onClick stop service -----");
-                stopService(intent);
-                break;
-            case R.id.test_bind_service_btn:
+            startService(intent);
+        } else if (id == R.id.test_stop_service_btn) {
+            //                Log.d(TAG, " onClick stop service -----");
+            stopService(intent);
+        } else if (id == R.id.test_bind_service_btn) {
 //                Log.d(TAG, " onClick bind service -----");
-                isBindService = bindService(intent,mServiceConnection,BIND_AUTO_CREATE);
+            isBindService = bindService(intent, mServiceConnection, BIND_AUTO_CREATE);
 //                Log.d(TAG, " onClick bind service -----  isBindService = " + isBindService);
-                break;
-            case R.id.test_unbind_service_btn:
+        } else if (id == R.id.test_unbind_service_btn) {
 //                Log.d(TAG, " onClick unbind service -----");
-                if(isBindService){
+            if (isBindService) {
 //                    Log.d(TAG, "  有已绑定服务，可以解绑 -----");
-                    unbindService(mServiceConnection);
-                    isBindService = false;
-                } else {
+                unbindService(mServiceConnection);
+                isBindService = false;
+            } else {
 //                    Log.d(TAG, "  没有已经绑定服务，不可以解绑 -----");
-                }
-                break;
-            case R.id.test_intent_service_btn:
+            }
+        } else if (id == R.id.test_intent_service_btn) {
 //                Log.d(TAG, " onClick start intentService -----");
-                Intent intentSer = new Intent(this, IntentServiceTest.class);
-                startService(intentSer);
-                break;
-
-            case R.id.goto_test_service_btn:
-                Intent intentAct = new Intent(this, ServiceTestActivity.class);
-                startActivity(intentAct);
-                break;
+            Intent intentSer = new Intent(this, IntentServiceTest.class);
+            startService(intentSer);
+        } else if (id == R.id.goto_test_service_btn) {
+            Intent intentAct = new Intent(this, ServiceTestActivity.class);
+            startActivity(intentAct);
         }
-
-
-
     }
 }
