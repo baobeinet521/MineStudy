@@ -33,15 +33,15 @@ class RxStudyTest {
             ObservableImpl.create(student)
                 .map(object: Func1<Student<String>, Teacher>{
                     override fun call(t: Student<String>?): Teacher {
-                        println("student hashcode : " + t)
-                        println("teacher hashcode : " + teacher)
+                        println("student hashcode : $t")
+                        println("teacher hashcode : $teacher")
                         return teacher
                     }
 
                 })
                 ?.doNext(object: Action<Teacher>{
                     override fun callAction(t: Teacher?) {
-                        println("teacher hashcode2 : " + t)
+                        println("teacher hashcode2 : $t")
                     }
 
                 })

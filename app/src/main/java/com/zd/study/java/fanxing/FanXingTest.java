@@ -1,5 +1,6 @@
 package com.zd.study.java.fanxing;
 
+import com.zd.study.java.bean.Human;
 import com.zd.study.java.bean.MyClass;
 import com.zd.study.java.bean.Student;
 import com.zd.study.java.bean.SubStudent;
@@ -36,6 +37,20 @@ public class FanXingTest {
      * 如果将泛型声明放在泛型接口,泛型类上,则该泛型在该类中就是确定的了,如果将泛型声
      * 明放在了泛型方法上,则该泛型只在该方法中有效,如果泛型方法上声明的泛型类型和类或
      * 接口中声明的泛型一致,则会在该方法中隐藏类或接口上的泛型
+     *
+     *
+     *
+     * PECS原则
+     * 最后看一下什么是PECS（Producer Extends Consumer Super）原则，已经很好理解了：
+     *
+     * 频繁往外读取内容的，适合用上界Extends。
+     * 经常往里插入的，适合用下界Super。
+     * 总结
+     * extends 可用于返回类型限定，不能用于参数类型限定（换句话说：? extends xxx 只能用于方法返回类型限定，jdk能够确定此类的最小继承边界为xxx，只要是这个类的父类都能接收，但是传入参数无法确定具体类型，只能接受null的传入）。
+     * super 可用于参数类型限定，不能用于返回类型限定（换句话说：? supper xxx 只能用于方法传参，因为jdk能够确定传入为xxx的子类，返回只能用Object类接收）。
+     * ? 既不能用于方法参数传入，也不能用于方法返回。
+     * 带有super超类型限定的通配符可以向泛型对象中写入，带有extends子类型限定的通配符可以向泛型对象读取
+     * 原文链接：https://blog.csdn.net/jdsjlzx/article/details/70479227
      */
 
     /**
@@ -82,17 +97,40 @@ public class FanXingTest {
          * 知道范围！
          */
 
-        List<Student> testAll = new ArrayList<>();
-        Student st1 = new Student();
+        List<Student<String>> testAll = new ArrayList<>();
+        Student<String> st1 = new Student<>();
         st1.setScore("100");
 
         testAll.add(st1);
 
-        List<SubStudent> testSt = new ArrayList<>();
-        SubStudent subStudent = new SubStudent();
+        List<SubStudent<String>> testSt = new ArrayList<>();
+        SubStudent<String> subStudent = new SubStudent<>();
         subStudent.setScore("17");
         testSt.add(subStudent);
         testAll.addAll(testSt);
+
+
+        /*
+         * 只可以读取元素不可以添加元素
+         */
+        List<? extends Student<String>> list3 = testSt;
+        Object object = list3.get(0);
+        Human object1 = list3.get(0);
+        Student<String> objectSt = list3.get(0);
+        SubStudent<String> subObject = (SubStudent<String>) list3.get(0);
+
+        /*
+         * 下界<? super T>不影响往里存，但往外取只能放在Object对象里
+         * 下界用super进行声明，表示参数化的类型可能是所指定的类型，或者是此类型的父类型，直至Object。
+         * super只能添加Student和Student的子类，不能添加Student的父类,读取出来的东西只能存放在Object类里
+         */
+        List<? super Student<String>> list4 = new ArrayList<>();
+        list4.add(st1);
+        list4.add(subStudent);
+//        list4.add(new Human()); //compile error
+        Student<String> st = (Student<String>) list4.get(0);
+        SubStudent<String> subSt = (SubStudent<String>) list4.get(0);
+        Object subO = list4.get(0);
 
         for (int i = 0; i < testAll.size(); i++){
             System.out.println("test2  学生的分数  " + testAll.get(i).getScore());

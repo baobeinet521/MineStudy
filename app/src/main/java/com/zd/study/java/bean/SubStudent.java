@@ -1,4 +1,4 @@
 package com.zd.study.java.bean;
 
-public class SubStudent extends Student<String>{
+public class SubStudent<T> extends Student<String>{
 }
