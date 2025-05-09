@@ -1,6 +1,6 @@
 package com.zd.study.java.bean;
 
-public class Student<T> {
+public class Student<T> extends Human {
     private int age;
     private T score;
 
