@@ -116,6 +116,10 @@ dependencies {
 //    implementation 'com.github.cloud-reader-jinlian:cloudreader-picture:v1.0.0'
     implementation files('libs/eid-travel-bc-v1.0.3.jar')
 
+
+    testImplementation 'org.ow2.asm:asm:9.2'//testImplementation在test中使用
+    testImplementation 'org.ow2.asm:asm-commons:9.2'
+
 }
 repositories {
     mavenCentral()
