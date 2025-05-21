@@ -82,12 +82,14 @@ public class MainActivity extends AppCompatActivity {
 //        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
 //        mTestText.setText(Html.fromHtml(a));
         Button glideTestBtn = findViewById(R.id.glide_test_btn);
-        glideTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GlideStudyActivity.class);
-                startActivity(intent);
-            }
+        Button viewTestBtn = findViewById(R.id.view_test_btn);
+        glideTestBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GlideStudyActivity.class);
+            startActivity(intent);
+        });
+        viewTestBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LayoutOptActivity.class);
+            startActivity(intent);
         });
         mTabFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
