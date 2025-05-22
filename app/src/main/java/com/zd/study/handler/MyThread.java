@@ -26,6 +26,8 @@ public class MyThread extends Thread{
         mLooper = getLooper();
         Log.d(TAG, " MyThread ,Looper " + mLooper);
         Log.d(TAG, " MyThread ,run " + Utils.getPid());
+        Looper looper = Looper.myLooper();
+        Log.d(TAG, " MyThread ,run  Looper.myLooper() " + looper);
         mHandler = new Handler(Looper.myLooper()) {
             @Override
             public void handleMessage(@NonNull Message msg) {

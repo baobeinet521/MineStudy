@@ -1,10 +1,7 @@
 package com.zd.study.activity;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -23,7 +20,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,9 +31,8 @@ import androidx.cardview.widget.CardView;
 import androidx.window.layout.FoldingFeature;
 import androidx.window.layout.WindowInfoTracker;
 
-import com.bumptech.glide.Glide;
 import com.zd.study.R;
-import com.zd.study.utils.DisplayUtil;
+import com.zd.study.handler.HandlerActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -82,12 +77,14 @@ public class MainActivity extends AppCompatActivity {
 //        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
 //        mTestText.setText(Html.fromHtml(a));
         Button glideTestBtn = findViewById(R.id.glide_test_btn);
-        glideTestBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, GlideStudyActivity.class);
-                startActivity(intent);
-            }
+        Button viewTestBtn = findViewById(R.id.view_test_btn);
+        glideTestBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, GlideStudyActivity.class);
+            startActivity(intent);
+        });
+        viewTestBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, LayoutOptActivity.class);
+            startActivity(intent);
         });
         mTabFragmentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +160,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.addCategory("android.intent.category.BROWSABLE");
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.setData(Uri.parse("bocom://https://wap.95559.com.cn/mobs/main.html#public/index/index?flag=bocom_home_page_nph0001_update&&https%3A%2F%2Fmbank.95559.com.cn%3A8888%2Fmobs6"));
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.handler_test_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HandlerActivity.class);
                 startActivity(intent);
             }
         });

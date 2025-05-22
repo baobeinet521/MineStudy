@@ -97,17 +97,18 @@
             android:exported="false">
 
         </activity>
-        <activity android:name=".activity.WebViewTestActivity"></activity>
+        <activity android:name=".activity.WebViewTestActivity"/>
         <activity android:name=".activity.FragmentTestActivity"
             android:exported="true"
             android:hardwareAccelerated="true"
             android:screenOrientation="portrait"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout"
-            ></activity>
+            />
         <activity android:name=".activity.WindowTestActivity"
-            android:configChanges="screenSize|smallestScreenSize|screenLayout"></activity>
+            android:configChanges="screenSize|smallestScreenSize|screenLayout"/>
         <activity android:name=".activity.ScrollTextActivity"/>
         <activity android:name=".activity.GlideStudyActivity"/>
+        <activity android:name=".activity.LayoutOptActivity"/>
 
     </application>
 

@@ -2,6 +2,7 @@ package com.zd.study;
 
 import android.content.Context;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -11,7 +12,7 @@ import androidx.annotation.NonNull;
 import java.lang.ref.WeakReference;
 
 public class Test implements Parcelable {
-    private Handler handler = new Handler(){
+    private Handler handler = new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -41,7 +42,6 @@ public class Test implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-
     }
 
     public static class MyHandler extends Handler{

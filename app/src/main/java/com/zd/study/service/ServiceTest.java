@@ -10,8 +10,6 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.zd.study.handler.HandlerActivity;
-
 
 public class ServiceTest extends Service {
     public static String TAG ="ZdServiceTest";
