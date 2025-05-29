@@ -94,13 +94,26 @@
         android:textSize="24dp"
         android:orientation="vertical"/>
 
+    <Button
+        android:id="@+id/handler_test_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_test_btn"
+        android:text="handler测试"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:orientation="vertical"/>
+
     <TextView
         android:id="@+id/test1_btn2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/handler_test_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="welcome   123456    Wste"
         android:textStyle="bold"
@@ -111,10 +124,10 @@
     <TextView
         android:id="@+id/text_view"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test1_btn"
+        app:layout_constraintTop_toBottomOf="@+id/test1_btn2"
         android:text="测试1">
     </TextView>
 

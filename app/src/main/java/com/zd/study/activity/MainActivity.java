@@ -1,5 +1,7 @@
 package com.zd.study.activity;
 
+import static android.text.Html.FROM_HTML_MODE_LEGACY;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -126,8 +128,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        String test = String.format(MainActivity.this.getString(R.string.black_red1), "nihaoaa");
-        mTestView.setText(Html.fromHtml(test));
+//        String test = String.format(MainActivity.this.getString(R.string.black_red1), "nihaoaa");
+        String test = "<div>您也可以<a href=\"https://www.baidu.com\"><font color='#FF03DAC5'>点击这里</a></font>查看并扫描二维码后关注。</div>";
+        mTestView.setText(Html.fromHtml(test, FROM_HTML_MODE_LEGACY));
 
         findViewById(R.id.test1_btn).setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)

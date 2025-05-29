@@ -109,18 +109,6 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
         };
 
         mWorkHandler.removeCallbacksAndMessages(null);
-
-        handlerRunnable = new Handler();
-        handlerRunnable.post(new Runnable() {
-            @Override
-            public void run() {
-                Message msg = new Message();
-                handlerRunnable.obtainMessage();
-                Message msg1 = Message.obtain();
-                mTxtTest.setText("handlerRunnable 刷新UI:我想要一个车车");
-            }
-        });
-
         
     }
 
@@ -144,7 +132,16 @@ public class HandlerActivity extends AppCompatActivity implements View.OnClickLi
                 msg.obj = "普通的Threads刷新UI:我要去旅行";
                 workThread.mHandler.sendMessage(msg);
             } else if (id == R.id.btn_4) {
-
+                handlerRunnable = new Handler();
+                handlerRunnable.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        Message msg = new Message();
+                        handlerRunnable.obtainMessage();
+                        Message msg1 = Message.obtain();
+                        mTxtTest.setText("handlerRunnable 刷新UI:我想要一个车车");
+                    }
+                });
             }
 
     }
