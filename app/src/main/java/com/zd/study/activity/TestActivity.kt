@@ -33,6 +33,8 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zd.study.R
 import com.zd.study.broadcast.TestBroadcastReceiverActivity
+import com.zd.study.handler.HandlerActivity
+import com.zd.study.service.BookManagerActivity
 import com.zd.study.service.ServiceTestActivity
 import java.io.File
 import java.io.IOException
@@ -139,7 +141,8 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         val id = v.id
         val intent = Intent()
         when (id) {
-            R.id.test_activity_btn -> //                Intent intent = new Intent(this, HandlerActivity.class);
+            R.id.test_activity_btn -> {
+                intent.setClass(this, HandlerActivity::class.java)
 //                 intent = new Intent(this, LifeCycleActivity.class);
 //                Intent intentTest = new Intent();
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -149,7 +152,7 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
 //                System.out.println("_____分割线_______");
 //                mSingleInstanceD.testPrint();
 
-//                startActivity(intent);
+                startActivity(intent)
 
 //                Intent i = new Intent(Intent.ACTION_PICK);
 ////                i.addCategory(Intent.CATEGORY_OPENABLE);
@@ -213,8 +216,8 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
 //                getReadAndWritePermissions();
 //                String str = "/oss/";
 //                Log.e("ceshi", "=========   " + str);
-                schemeTest()
-
+//                schemeTest()
+            }
             R.id.touch_event_btn -> {
 //                intent.setClass(this, TouchEventTestActivity::class.java)
 //                startActivity(intent)
@@ -244,8 +247,8 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             R.id.aidl_test_btn -> {
-//                intent.setClass(this, BookManagerActivity::class.java)
-//                startActivity(intent)
+                intent.setClass(this, BookManagerActivity::class.java)
+                startActivity(intent)
             }
 
             R.id.draw_view_test_btn -> if (CanShowFloat) {
@@ -472,9 +475,10 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    /**
-     * 动态请求悬浮窗权限
-     */
+/**
+     * 动态请求悬浮窗权限*/
+
+
     fun RequestOverlayPermission(activity: Activity) {
         if (Build.VERSION.SDK_INT >= 23) {
             if (!Settings.canDrawOverlays(activity)) {
@@ -606,9 +610,10 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    /**
-     * 权限读取权限
-     */
+/**
+     * 权限读取权限*/
+
+
     private fun getReadAndWritePermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
@@ -649,9 +654,10 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    /**
-     * 权限的验证及处理，相关方法
-     */
+/**
+     * 权限的验证及处理，相关方法*/
+
+
     private fun getReadPermissions() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(
@@ -693,12 +699,14 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
     /**
      * 一个或多个权限请求结果回调
      * 当点击了不在询问，但是想要实现某个功能，必须要用到权限，可以提示用户，引导用户去设置
-     */
+     **/
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
-        permissions: Array<String?>,
+        permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
             10001 -> {

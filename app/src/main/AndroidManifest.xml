@@ -3,6 +3,13 @@
     >
     <permission android:name="com.zd.study.permission.ACCESS_BOOK_SERVICE"
         android:protectionLevel="normal"/>
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
@@ -74,7 +81,8 @@
             android:taskAffinity="com.zd.study"
             android:launchMode="singleTask"/>
 
-        <activity android:name=".activity.BookManagerActivity"
+        <!--运行在进程com.zd.study:remote进程中-->
+        <activity android:name=".service.BookManagerActivity"
             android:process=":remote" />
         <activity android:name=".activity.DrawViewActivity"/>
 
@@ -87,7 +95,7 @@
             android:enabled="true"
             android:exported="true"/>
         <activity android:name=".activity.VedioPlayerTestActivity"
-            android:exported="false"></activity>
+            android:exported="false"/>
         <activity android:name=".activity.FrescoTestActivity"
             android:exported="false">
 
@@ -109,6 +117,7 @@
         <activity android:name=".activity.ScrollTextActivity"/>
         <activity android:name=".activity.GlideStudyActivity"/>
         <activity android:name=".activity.LayoutOptActivity"/>
+        <activity android:name=".activity.CoroutineTestActivity"/>
 
     </application>
 
