@@ -35,6 +35,7 @@ import com.zd.study.R
 import com.zd.study.broadcast.TestBroadcastReceiverActivity
 import com.zd.study.handler.HandlerActivity
 import com.zd.study.service.BookManagerActivity
+import com.zd.study.service.MessengerActivity
 import com.zd.study.service.ServiceTestActivity
 import java.io.File
 import java.io.IOException
@@ -48,6 +49,7 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
     private var mServiceTestBtn: Button? = null
     private var mBroadcastReceiverBtn: Button? = null
     private var mAIDLBtn: Button? = null
+    private var mMessageBtn: Button? = null
     private var mDrawBtn: Button? = null
     private var mTestLocalThreadBtn: Button? = null
     private var mVideoTestBtn: Button? = null
@@ -76,6 +78,8 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
         mBroadcastReceiverBtn?.setOnClickListener(this)
         mAIDLBtn = findViewById(R.id.aidl_test_btn)
         mAIDLBtn?.setOnClickListener(this)
+        mMessageBtn = findViewById(R.id.message_test_btn)
+        mMessageBtn?.setOnClickListener(this)
         mDrawBtn = findViewById(R.id.draw_view_test_btn)
         mDrawBtn?.setOnClickListener(this)
         mTestLocalThreadBtn = findViewById(R.id.local_thread_test_btn)
@@ -248,6 +252,10 @@ class TestActivity : AppCompatActivity(), View.OnClickListener {
 
             R.id.aidl_test_btn -> {
                 intent.setClass(this, BookManagerActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.message_test_btn -> {
+                intent.setClass(this, MessengerActivity::class.java)
                 startActivity(intent)
             }
 
