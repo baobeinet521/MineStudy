@@ -68,6 +68,15 @@
                 android:background="#6778001f"/>
 
             <Button
+                android:id="@+id/message_test_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:text="message多进程通信测试"
+                android:textAllCaps="true"
+                android:background="#6778001f"/>
+
+            <Button
                 android:id="@+id/draw_view_test_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"

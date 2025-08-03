@@ -81,6 +81,13 @@
             android:taskAffinity="com.zd.study"
             android:launchMode="singleTask"/>
 
+        <service android:name="com.zd.study.service.MessengerService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <activity android:name=".service.MessengerActivity"
+            android:process=":remoteMessage"/>
+
         <!--运行在进程com.zd.study:remote进程中-->
         <activity android:name=".service.BookManagerActivity"
             android:process=":remote" />
