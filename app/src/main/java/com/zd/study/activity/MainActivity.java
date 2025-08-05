@@ -51,10 +51,11 @@ import java.util.jar.JarFile;
 /**
  * @author zd
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private Button mTabFragmentBtn;
     private Button mButton;
+    private Button mTestButton;
     private CardView mCardView;
     private TextView mTestView;
     @Override
@@ -75,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         mCardView = findViewById(R.id.test_card_view);
         mCardView.setCardBackgroundColor(this.getResources().getColor(R.color.black));
         mButton = findViewById(R.id.test_btn);
+        mTestButton = findViewById(R.id.test_page_btn);
         mTestView = findViewById(R.id.text_view);
 //        String a = "<a href=\"www://baidu.com\">跳转链接</a>";
 //        mTestText.setText(Html.fromHtml(a));
@@ -99,8 +101,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 //                getScreenWith();
-//                Intent intent = new Intent(MainActivity.this, TestActivity.class);
-//                startActivity(intent);
 
 //                try {
 //                    Uri uri = Uri.parse("bocom://https://wap.95559.com.cn/mobs/main.html#public/index/index?flag=bocom_home_page_nph0001_update&&https%3A%2F%2Fmbank.95559.com.cn%3A8888%2Fmobs6%2Ftransfer%2FTRA%2FNTRAA01.html%3FtokenId%3Dxxx");
@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity {
 //                Log.d("ceshi",a);
 
 
-
 //                test();
 //                PopupwindowUtils.showPop(MainActivity.this);
 
@@ -123,7 +122,18 @@ public class MainActivity extends AppCompatActivity {
 //                PopupwindowUtils.showPop(MainActivity.this);
 //                testPoc();
 
-                "aa".equals(null);
+//                "aa".equals(null);
+
+
+                Intent intent = new Intent(MainActivity.this, CoroutineTestActivity.class);
+                startActivity(intent);
+            }
+        });
+        mTestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -185,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void getScreenWith(){
+    public void getScreenWith() {
         DisplayMetrics dm = this.getResources().getDisplayMetrics();
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        Log.d("ceshi", " width   " +  getDisplayWidth(this) + " height   " + getDisplayHeight(this));
+        Log.d("ceshi", " width   " + getDisplayWidth(this) + " height   " + getDisplayHeight(this));
     }
 
 
@@ -221,11 +231,10 @@ public class MainActivity extends AppCompatActivity {
         activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
         return displayMetrics;
     }
-    
-    
 
-    public void testPoc(){
-        try{
+
+    public void testPoc() {
+        try {
 
             //当前应用pid
             final PackageManager packageManager = this.getPackageManager();
@@ -240,12 +249,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             List<PackageInfo> packages = getPackageManager().getInstalledPackages(0);
-            for(int i=0;i<packages.size();i++) {
+            for (int i = 0; i < packages.size(); i++) {
                 PackageInfo packageInfo = packages.get(i);
                 Log.i("TAG", "getAppProcessName: 1111" + packageInfo.packageName);
             }
 
-            long start  = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
             Log.i("TAG", "开始时间    start  " + start);
             String packageName = getPackageName();
             PackageInfo packageInfo = packageManager.getPackageInfo("com.eg.android.AlipayGphone"/*packageName*/, 0);
@@ -264,25 +273,25 @@ public class MainActivity extends AppCompatActivity {
             FileInputStream fis = new FileInputStream(apkFile);
             byte[] buffer = new byte[1024];
             int length;
-            while ((length = fis.read(buffer)) != -1){
+            while ((length = fis.read(buffer)) != -1) {
                 md5.update(buffer, 0, length);
             }
             byte[] digest = md5.digest();
             StringBuffer sb = new StringBuffer();
-            for(byte b : digest){
+            for (byte b : digest) {
                 sb.append(String.format("%02x", b & 0xff));
             }
             String md5Value = sb.toString();
-            long end  = System.currentTimeMillis();
+            long end = System.currentTimeMillis();
             Log.i("TAG", "开始时间    end  " + end + "========" + (end - start));
             Log.d("TAG", "md5Value       " + md5Value);
-        }catch ( Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    private void dealOpenPermission(Context context , SpannableString mSpannableString, TextView goToOpenPermissionText){
+    private void dealOpenPermission(Context context, SpannableString mSpannableString, TextView goToOpenPermissionText) {
         goToOpenPermissionText.setText(mSpannableString);
         goToOpenPermissionText.setHighlightColor(context.getResources().getColor(R.color.transparent));
         String test = String.format(MainActivity.this.getString(R.string.test), "nihaoaa");
@@ -290,7 +299,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
 //                XXPermissions.startPermissionActivity(context, permissions);
-                Toast.makeText(context,"点击了", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "点击了", Toast.LENGTH_LONG).show();
             }
         }, mSpannableString.length() - 3, mSpannableString.length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
         ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(context.getResources().getColor(R.color.blue));
@@ -307,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void test(){
+    public void test() {
 //        String url = "http://p3-sdkdemo-images.byteimg.com/tos-cn-i-q5j7jlkqqz/1.webp~tplv-q5j7jlkqqz-image.image?sc=test_%_sc";
 //        Uri uri = Uri.parse(url);
 //        String scheme = uri.getScheme();
@@ -323,7 +332,7 @@ public class MainActivity extends AppCompatActivity {
 
         long time = System.currentTimeMillis();
         int day = (int) (time / (1000));
-        Log.d("test", "time   "+  time + "   day = " + day);
+        Log.d("test", "time   " + time + "   day = " + day);
 
 
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
@@ -339,8 +348,8 @@ public class MainActivity extends AppCompatActivity {
         int time1 = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day1 = calendar.get(Calendar.DAY_OF_MONTH);
-        Log.d("test1", "   time1 = " + time1 + "    month  "+ month + " day1  " + day1 + " 最终   "
-                +  String.valueOf(time1)+ String.valueOf(month) + String.valueOf(day1));
+        Log.d("test1", "   time1 = " + time1 + "    month  " + month + " day1  " + day1 + " 最终   "
+                + String.valueOf(time1) + String.valueOf(month) + String.valueOf(day1));
     }
 
     @Override
