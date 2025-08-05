@@ -10,6 +10,7 @@ class MoreExploreBizData: BaseData() {
 class BizCardData {
     //1单纯文字 2 消息轮播 3图片
     var cardContentType: Int? = null
+    var isShow = true
     //卡片内item数据
     var dataList: MutableList<BizCardItemData>? = null
 }

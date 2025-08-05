@@ -1,137 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
-    
-    <Button
-        android:id="@+id/tab_fragment_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textAllCaps="false"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:text="tabfragment测试">
-    </Button>
+    android:layout_height="match_parent">
 
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/anim"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@+id/tab_fragment_btn"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:lottie_fileName="star.json"
-        app:lottie_autoPlay="true">
-
-    </com.airbnb.lottie.LottieAnimationView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/test_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/anim"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:cardBackgroundColor="@color/red"
-        app:cardCornerRadius="6dp">
-
-    </androidx.cardview.widget.CardView>
-    <Button
-        android:id="@+id/test_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_card_view"
-        android:text="测试今天是星期五"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:orientation="vertical">
-    </Button>
-
-
-    <Button
-        android:id="@+id/test1_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_btn"
-        android:text="测试1"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:orientation="vertical">
-    </Button>
-
-    <Button
-        android:id="@+id/glide_test_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_btn"
-        android:text="glide图片加载"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:orientation="vertical"/>
-
-    <Button
-        android:id="@+id/view_test_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test_btn"
-        android:text="布局优化测试"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:orientation="vertical"/>
-
-    <Button
-        android:id="@+id/handler_test_btn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_test_btn"
-        android:text="handler测试"
-        android:textAllCaps="false"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:orientation="vertical"/>
-
-    <TextView
-        android:id="@+id/test1_btn2"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/handler_test_btn"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="welcome   123456    Wste"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:orientation="vertical"/>
-
-
-    <TextView
-        android:id="@+id/text_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/test1_btn2"
-        android:text="测试1">
-    </TextView>
+        tools:context=".activity.MainActivity">
+
+        <ImageView
+            android:id="@+id/glide_test"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:background="@color/black"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/tab_fragment_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="tabfragment测试"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/glide_test"/>
 
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/anim"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_fragment_btn"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="star.json"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout >
+        <androidx.cardview.widget.CardView
+            android:id="@+id/test_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            app:cardBackgroundColor="@color/red"
+            app:cardCornerRadius="6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anim">
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/test_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="测试今天是星期五"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test_card_view"/>
+
+
+        <Button
+            android:id="@+id/test1_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="测试1"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test_btn"/>
+
+        <Button
+            android:id="@+id/glide_test_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="glide图片加载"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test1_btn" />
+
+        <Button
+            android:id="@+id/view_test_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="布局优化测试"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/glide_test_btn" />
+
+        <Button
+            android:id="@+id/handler_test_btn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="handler测试"
+            android:textAllCaps="false"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view_test_btn" />
+
+        <TextView
+            android:id="@+id/test1_btn2"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:text="welcome   123456    Wste"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/handler_test_btn" />
+
+
+        <TextView
+            android:id="@+id/text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/test1_btn2"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
