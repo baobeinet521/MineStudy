@@ -51,7 +51,7 @@ allprojects {
         maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://jitpack.io" }
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
