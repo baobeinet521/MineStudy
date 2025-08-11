@@ -9,7 +9,10 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,6 +25,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,13 +37,23 @@ import androidx.cardview.widget.CardView;
 import androidx.window.layout.FoldingFeature;
 import androidx.window.layout.WindowInfoTracker;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.DecodeFormat;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.CustomTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.zd.study.R;
 import com.zd.study.handler.HandlerActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.lang.ref.WeakReference;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -47,17 +61,28 @@ import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.jar.JarFile;
+import android.content.ComponentCallbacks2;
 
 /**
  * @author zd
  */
 public class MainActivity extends BaseActivity {
 
+    class TestObject{
+        @Override
+        protected void finalize() throws Throwable {
+            super.finalize();
+            Log.d("cesi", "finalize:   ");
+        }
+    }
+
     private Button mTabFragmentBtn;
     private Button mButton;
     private Button mTestButton;
     private CardView mCardView;
     private TextView mTestView;
+    private WeakReference<TestObject> mTestObject;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -184,6 +209,58 @@ public class MainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView glideTest = findViewById(R.id.glide_test);
+        glideTest.post(new Runnable() {
+            @Override
+            public void run() {
+                int width = glideTest.getMeasuredWidth();
+                int height = glideTest.getMeasuredHeight();
+                Log.d("ceshi"," view width     " + width +  "    view height     " + height);
+                RequestOptions option = RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.RESOURCE).format(DecodeFormat.PREFER_ARGB_8888).priority(Priority.IMMEDIATE)/*.override(width * 5, height * 5)*/;
+
+//        String url = "https://mbanktest.bankcomm.com:8724/mobs6.0-TMF-UAT/home/oss/pub/file/img/public/wonhot/images/IM4804a7d02df744c3a77a4cd9a34cc7ed.jpeg?InstRoom=zj";
+                String url = "https://mbanktest.bankcomm.com:8724/mobs6.0-TMF-UAT/home/oss/pub/file/img/public/wonhot/images/IM22a39b8407d943a7bf40ef88667e527b.jpeg?InstRoom=zj";
+//        url = "https://download1.bankcomm.com/mobs_assets/home/oss/pub/file/img/public/wonhot/images/IM63dc386a663e49fe8affe5a4ef719ecd.jpeg?InstRoom=pjx";
+
+                Glide.with(MainActivity.this).asDrawable().apply(option).load(url).into(new CustomTarget<Drawable>() {
+                    @Override
+                    public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                        Bitmap bitmap = ((BitmapDrawable)resource).getBitmap();
+                        int size = bitmap.getByteCount();
+                        float imageSize = size / 1024f / 1024f;
+                        Log.d("ceshi"," image width     " + bitmap.getWidth() +  "    image height     " + bitmap.getHeight() + bitmap.getConfig());
+                        Log.d("ceshi","   imageSize   " + imageSize + "  size   " + size);
+                        glideTest.setImageDrawable(resource);
+                    }
+
+                    @Override
+                    public void onLoadCleared(@Nullable Drawable placeholder) {
+
+                    }
+                });
+            }
+        });
+        /*new Handler(getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("ceshi","   进入handeler了   ");
+                try {
+                    List<Byte[]> lists = new ArrayList<>();
+                    for (int i = 0; i < 10000000; i++){
+                        lists.add(new Byte[1024 * 1024 * 100]);
+//                        Log.d("ceshi", "i  " +  i);
+//                        Bitmap bitmap = Bitmap.createBitmap(1024, 1024, Bitmap.Config.ARGB_8888);
+//                        lists.add(bitmap);
+                    }
+                }catch (OutOfMemoryError e){
+                    Log.d("ceshi", "" + e);
+                    Log.e("ceshi", "清楚Glide缓存 ============ ");
+                    Glide.get(MainActivity.this).clearMemory();
+                    Glide.get(MainActivity.this).clearDiskCache();
+                }
+            }
+        }, 10000);*/
     }
 
     private void handleFoldingFeature(FoldingFeature feature, Rect bounds) {
