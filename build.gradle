@@ -3,7 +3,7 @@ buildscript {
     ext.kotlin_version = '1.9.25'
     ext.compose_ui_version = '1.0.0'
     ext {
-        agp_version = '8.0.0'
+        agp_version = '8.9.2'
     }
     repositories {
         maven { url "https://maven.aliyun.com/nexus/content/groups/public" }

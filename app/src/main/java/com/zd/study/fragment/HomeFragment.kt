@@ -13,12 +13,12 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.zd.study.R
 import com.zd.study.biz.home.BizHomeRecyclerAdapter
 import com.zd.study.biz.home.imagefloor.model.ImageFloorData
-import com.zd.study.biz.home.textfloor.model.TextFloorData
 import com.zd.study.biz.home.model.HomeData
-import com.zd.study.biz.home.moreexplorefloor.model.MoreExploreBizData
 import com.zd.study.biz.home.moreexplorefloor.model.BizCardData
 import com.zd.study.biz.home.moreexplorefloor.model.BizCardItemData
 import com.zd.study.biz.home.moreexplorefloor.model.InfoData
+import com.zd.study.biz.home.moreexplorefloor.model.MoreExploreBizData
+import com.zd.study.biz.home.textfloor.model.TextFloorData
 import com.zd.study.databinding.FragmentHomeLayoutBinding
 
 /**
@@ -45,7 +45,8 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         bindViewData()
         val bizData = createData()
         mHomeAdapter.setListData(bizData)
-        val fragmentOneLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        val fragmentOneLayoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding?.fragmentOneRecycle?.apply {
             layoutManager = fragmentOneLayoutManager
             animation = null
@@ -97,13 +98,18 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             data.title = "单纯文案卡片$i"
             when (i) {
                 0 -> {
-                    data.cardBg = "https://img1.baidu.com/it/u=23013213233361619010&fm=253&fmt=auto&app=138&f=JPEG?w=281&h=500"
+                    data.cardBg =
+                        "https://img1.baidu.com/it/u=23013213233361619010&fm=253&fmt=auto&app=138&f=JPEG?w=281&h=500"
                 }
+
                 1 -> {
-                    data.cardBg = "https://img2.baidu.com/it/u=2876597994,4283249971&fm=253&fmt=auto&app=138&f=JPEG?w=475&h=475"
+                    data.cardBg =
+                        "https://img2.baidu.com/it/u=2876597994,4283249971&fm=253&fmt=auto&app=138&f=JPEG?w=475&h=475"
                 }
+
                 2 -> {
-                    data.cardBg = "http://img1.baidu.com/it/u=2227905514,1724711623&fm=253&app=138&f=JPEG?w=800&h=1731"
+                    data.cardBg =
+                        "http://img1.baidu.com/it/u=2227905514,1724711623&fm=253&app=138&f=JPEG?w=800&h=1731"
                 }
             }
             titleDataList.add(data)
@@ -117,7 +123,8 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
         val infoDataList: MutableList<BizCardItemData> = mutableListOf()
         val data = BizCardItemData()
         data.title = "消息轮播卡片"
-        data.cardBg = "https://img1.baidu.com/it/u=373367614,1747334261&fm=253&fmt=auto&app=138&f=JPEG?w=513&h=912"
+        data.cardBg =
+            "https://img1.baidu.com/it/u=373367614,1747334261&fm=253&fmt=auto&app=138&f=JPEG?w=513&h=912"
         val infoList: MutableList<InfoData> = mutableListOf()
         for (i in 0 until 20) {
             val infoData = InfoData()
@@ -137,19 +144,25 @@ class HomeFragment : Fragment(), SwipeRefreshLayout.OnRefreshListener {
             val advCardItemData = BizCardItemData()
             when (i) {
                 0 -> {
-                    advCardItemData.cardBg = "https://db.workercn.cn/media/2025/01/01/CD428CD5FF7B4835B1DC8C49AFCD1A9F/thumb.jpg"
+                    advCardItemData.cardBg =
+                        "https://db.workercn.cn/media/2025/01/01/CD428CD5FF7B4835B1DC8C49AFCD1A9F/thumb.jpg"
                 }
+
                 1 -> {
-                    advCardItemData.cardBg = "https://b0.bdstatic.com/ugc/6Xe41IbOr_TSDi0VFhIcNw9c29b9f4aa0416703af1919954c18a03.jpg"
+                    advCardItemData.cardBg =
+                        "https://b0.bdstatic.com/ugc/6Xe41IbOr_TSDi0VFhIcNw9c29b9f4aa0416703af1919954c18a03.jpg"
                 }
+
                 2 -> {
-                    advCardItemData.cardBg = "https://b0.bdstatic.com/ugc/6Xe41IbOr_TSDi0VFhIcNw320d11bc4e8cff03188e9e1b179ffa1e.jpg"
+                    advCardItemData.cardBg =
+                        "https://b0.bdstatic.com/ugc/6Xe41IbOr_TSDi0VFhIcNw320d11bc4e8cff03188e9e1b179ffa1e.jpg"
                 }
             }
             advCardItemData.title = "广告$i"
             advDataList.add(advCardItemData)
         }
         advBiz.dataList = advDataList
+        advBiz.isShow = false
         cardList.add(advBiz)
 
         moreExploreBizData.cardList = cardList

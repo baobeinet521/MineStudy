@@ -77,6 +77,7 @@ class MoreExploreRecyclerAdapter(context: Context?) : RecyclerView.Adapter<Recyc
         }
         bizMoreExploreAdapter.setData(mBizDatas?.get(position), mScrollFinalData)
         holder.moreExploreAutoScroll.setAdapter(bizMoreExploreAdapter)
+        holder.moreExploreAutoScroll.isAutoPlay = false
 
     }
 }
