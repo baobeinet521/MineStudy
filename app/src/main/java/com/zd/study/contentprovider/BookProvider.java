@@ -8,7 +8,7 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class contentProvider extends ContentProvider {
+public class BookProvider extends ContentProvider {
 
     @Override
     public boolean onCreate() {

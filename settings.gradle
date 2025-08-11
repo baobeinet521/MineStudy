@@ -8,5 +8,5 @@
 //}
 rootProject.name = "StudyApplication"
 include ':app'
-include ':frameworkmodule'
+include ':framework'
 include ':bizmodule'

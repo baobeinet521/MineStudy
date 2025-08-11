@@ -63,6 +63,11 @@
             <!--请添加这里的整个intent-filter区块，并确保其中只有一个data字段-->
         </activity>
 
+        <provider
+            android:authorities="com.zd.study.contentprovider.BookProvider"
+            android:name=".contentprovider.BookProvider"
+            android:permission="com.zd.PROVIDER"
+            android:process=":provider"/>
         <activity android:name=".activity.TestActivity"/>
 
         <activity android:name=".handler.HandlerActivity"/>

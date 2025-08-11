@@ -58,5 +58,5 @@ dependencies {
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
 
 
-    implementation project(path: ':frameworkmodule')
+    implementation project(path: ':framework')
 }

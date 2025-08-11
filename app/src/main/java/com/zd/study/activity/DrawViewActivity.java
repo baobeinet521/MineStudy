@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import com.zd.study.R;
 import com.zd.study.viewdraw.MyButton;
 
-public class DrawViewActivity extends Activity {
+public class DrawViewActivity extends FrescoTestActivity {
     private View mMyButton;
     private Context context;
     @Override

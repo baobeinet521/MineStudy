@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StudyApplication.iml" filepath="$PROJECT_DIR$/.idea/modules/StudyApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/StudyApplication.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.iml" filepath="$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.main.iml" filepath="$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/bizmodule/StudyApplication.bizmodule.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.iml" filepath="$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.main.iml" filepath="$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/frameworkmodule/StudyApplication.frameworkmodule.unitTest.iml" />
+    </modules>
+  </component>
+</project>

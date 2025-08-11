@@ -9,5 +9,9 @@ abstract class BaseActivity: AppCompatActivity() {
 
     }
 
+    open fun testA(){
+        System.out.println("BaseActivity  hahah   父类 执行setA（）=====")
+    }
+
 
 }

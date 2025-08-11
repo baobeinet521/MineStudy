@@ -6,15 +6,13 @@
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="ms-17" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/FrameworkModule" />
-            <option value="$PROJECT_DIR$/FrameworkModule/framework" />
-            <option value="$PROJECT_DIR$/JavaStudy" />
-            <option value="$PROJECT_DIR$/JavaStudy/test" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/bizmodule" />
+            <option value="$PROJECT_DIR$/framework" />
           </set>
         </option>
       </GradleProjectSettings>

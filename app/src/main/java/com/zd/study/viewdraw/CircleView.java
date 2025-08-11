@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -26,7 +27,7 @@ public class CircleView extends View {
     }
 
     public CircleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr,0);
+        this(context, attrs, defStyleAttr, 0);
     }
 
     public CircleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -37,9 +38,9 @@ public class CircleView extends View {
         init();
     }
 
-     public void init(){
+    public void init() {
         mPaint.setColor(mColor);
-     }
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -48,11 +49,11 @@ public class CircleView extends View {
         int widthSpaceSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSpaceSize = MeasureSpec.getSize(heightMeasureSpec);
-        if(widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST){
+        if (widthSpecMode == MeasureSpec.AT_MOST && heightSpecMode == MeasureSpec.AT_MOST) {
             setMeasuredDimension(100, 100);
-        }else if(widthSpecMode == MeasureSpec.AT_MOST){
+        } else if (widthSpecMode == MeasureSpec.AT_MOST) {
             setMeasuredDimension(100, heightSpaceSize);
-        }else if(heightSpecMode == MeasureSpec.AT_MOST){
+        } else if (heightSpecMode == MeasureSpec.AT_MOST) {
             setMeasuredDimension(widthSpaceSize, 100);
         }
     }
@@ -69,7 +70,10 @@ public class CircleView extends View {
         int height = getHeight() - paddingTop - paddingBottom;
 
         int radius = Math.min(width, height) / 2;
-        canvas.drawCircle(paddingLeft + width / 2, paddingTop + height /2, radius, mPaint);
+        canvas.drawCircle(paddingLeft + width / 2, paddingTop + height / 2, radius, mPaint);
 
     }
+
+
+
 }

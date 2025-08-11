@@ -12,7 +12,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.zd.study.R
 
-class GlideStudyActivity: AppCompatActivity() {
+class GlideStudyActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_glide_layout)
@@ -34,5 +34,9 @@ class GlideStudyActivity: AppCompatActivity() {
 //
 //        Glide.with(this).setDefaultRequestOptions(option).load(imageUrl).into(imageView)
 
+    }
+
+    override fun testA(){
+        Log.d("BaseActivity","hahah   子类 执行setA（）=====")
     }
 }

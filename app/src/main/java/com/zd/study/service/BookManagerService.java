@@ -26,6 +26,7 @@ public class BookManagerService extends Service {
     // AtomicBoolean 支持并发读写
     private final AtomicBoolean mIsServiceDestoryed = new AtomicBoolean(false);
 
+    //支持并发读写
     private CopyOnWriteArrayList<Book> mBookList = new CopyOnWriteArrayList<>();
     // 系统提供的专门用于保存、删除跨进程 listener 的类
     private RemoteCallbackList<IOnNewBookArrivedListener> mListenerList = new RemoteCallbackList<>();
