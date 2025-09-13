@@ -37,7 +37,7 @@ public class VedioPlayerTestActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if (mediaItems != null && mediaItems.size() > 0) {
-
+                Log.d("test","test");
             } else {
 
             }
