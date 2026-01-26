@@ -129,6 +129,8 @@
         <activity android:name=".activity.GlideStudyActivity"/>
         <activity android:name=".activity.LayoutOptActivity"/>
         <activity android:name=".activity.CoroutineTestActivity"/>
+        <activity android:name=".activity.LottieTestActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|screenLayout|fontScale"/>
 
     </application>
 
