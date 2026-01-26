@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.zd.study"
-        minSdk 28
+        minSdk 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -83,6 +83,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:2.14'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+//    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+
     implementation 'androidx.window:window:1.3.0'
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
@@ -138,8 +142,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     //lottie动画
-    implementation "com.airbnb.android:lottie:6.4.0"
+    implementation "com.airbnb.android:lottie:6.6.6"
 
+
+    implementation 'io.github.youth5201314:banner:2.2.3'
    /* implementation files('libs/bcpkix-jdk15on-1.64.jar')
     implementation files('libs/bcprov-jdk15on-1.64.jar')
     implementation files('libs/commons-codec-1.9.jar')
