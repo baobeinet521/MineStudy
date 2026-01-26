@@ -40,7 +40,7 @@ public class LottieTestActivity extends AppCompatActivity {
 
         LottieAnimationView lottieAnimationView2 = findViewById(R.id.lottie_test2);
         lottieAnimationView2.setAnimation(getResources().openRawResource(R.raw.star),"zhuyi");
-        lottieAnimationView2.setAnimationFromUrl(url,"cachekey");
+        lottieAnimationView2.setAnimationFromUrl(lottie1,"cachekey");
         lottieAnimationView2.playAnimation();
 
         change.setOnClickListener(new View.OnClickListener() {

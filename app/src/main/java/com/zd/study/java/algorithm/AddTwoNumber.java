@@ -40,6 +40,54 @@ public class AddTwoNumber {
         }
     }
 
+
+
+    public ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        if (l1 == null){
+            return l2;
+        } else if (l2 == null){
+            return l1;
+        }
+        ListNode h1 = l1;
+        ListNode h2 = l2;
+        ListNode head = new ListNode(0);
+        ListNode cur = head;
+        int num = 0;
+        int up = 0;
+        while (h1 != null && h2 != null) {
+            int add = h1.val + h2.val + up;
+            num = add % 10;
+            cur.next = new ListNode(num);
+            up = add / 10;
+            h1 = h1.next;
+            h2 = h2.next;
+            cur = cur.next;
+        }
+        while (h1 != null) {
+            int addH1 = up + h1.val;
+            int num1 = addH1 % 10;
+            up = addH1 / 10;
+            cur.next = new ListNode(num1);
+            h1 = h1.next;
+            cur = cur.next;
+        }
+
+        while (h2 != null) {
+            int addH2 = up + h2.val;
+            int num2 = addH2 % 10;
+            up = addH2 / 10;
+            cur.next = new ListNode(num2);
+            h2 = h2.next;
+            cur = cur.next;
+        }
+
+        if (up > 0) {
+            cur.next = new ListNode(up);
+        }
+        return head.next;
+    }
+
+
     /**
      * 给你两个非空 的链表，表示两个非负的整数。它们每位数字都是按照逆序的方式存储的，并且每个节点只能存储一位数字。
      *
